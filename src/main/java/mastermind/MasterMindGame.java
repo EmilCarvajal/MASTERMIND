@@ -1,3 +1,5 @@
+package mastermind;
+
 import java.util.ArrayList;
 import java.util.List;
 

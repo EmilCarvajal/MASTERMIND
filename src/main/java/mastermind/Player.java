@@ -57,5 +57,5 @@ public class Player {
         List<String> codisColorsCorrectes = new ArrayList<String>(MasterMindGame.COLORS);
         System.out.println(codisColorsCorrectes);
     }*/
-
+    // Emil esta in
 }

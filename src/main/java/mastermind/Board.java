@@ -21,23 +21,23 @@ public class Board{
     }
 
     //	GETTER
-    public ArrayList<Code> getHistorialCodis() {
+    public ArrayList<Code> getCodigosTablero() {
 //		retorna el historial de codis com una ArrayList
         return this.m_listCodigos;
     }
 
-    public ArrayList<Hint> getHistorialPistes() {
+    public ArrayList<Hint> getPistasTablero() {
 //		retorna el historial de pistes com una ArrayList
         return this.m_listEnciertos;
     }
 
     //	SETTER
-    public void afegirCodiHistorial(Code codigo) {
+    public void añadirCodigosTablero(Code codigo) {
         this.m_listCodigos.add(codigo);
     }
 
     //	SETTER
-    public void afegirPistaHistorial(Hint pista) {
+    public void añadirPistasTablero(Hint pista) {
         this.m_listEnciertos.add(pista);
 
     }
@@ -53,7 +53,7 @@ public class Board{
         for (int i = 0; i < MAX_OPPORTUNITIES; i++) {
             if (this.m_listCodigos.size() > i) {
                 tablero += "| ";
-                for (String codiChar : m_listCodigos.get(i).getCodi().split("")) {
+                for (String codiChar : m_listCodigos.get(i).getCodigo().split("")) {
                     tablero += codiChar + " ";
                 }
                 tablero += ": ";
@@ -68,7 +68,7 @@ public class Board{
         tauler += "+-------------------+";
         setTauler(tauler);
     }
-
+  /*
     public void setTauler() {
         String tauler = "";
         tauler += "+-------------------+\n";
@@ -92,7 +92,7 @@ public class Board{
         tauler += "+-------------------+";
         setTauler(tauler);
     }
-
+*/
     public String getTauler() {
         return tauler;
     }

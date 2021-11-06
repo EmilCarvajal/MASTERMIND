@@ -1,3 +1,4 @@
+package mastermind;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class Player {
 
     public void askPlayerName(){
         System.out.println("Please, enter you name (Max 10 characters): ");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);//cin. Para introducir por teclado
         this.name = scanner.nextLine();
         System.out.println("Your name is: " + name);
     }
@@ -43,19 +44,21 @@ public class Player {
     }
     public Boolean correct_code(String code){
 
-        if(code==null || code.length() !=4 ){
+        if(code==null || code.length() != MasterMindGame.CODE_LENGTH ){
             return false;
         }
-        //FALTA...
+        for( int index=0; index < MasterMindGame.CODE_LENGTH; index++){
+            //FALTA
+        }
         return true;
     }
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         Player p1= new Player();
         String answer =  p1.IntroduceCode();
         System.out.println(answer);
         List<String> codisColorsCorrectes = new ArrayList<String>(MasterMindGame.COLORS);
         System.out.println(codisColorsCorrectes);
-    }*/
+    }
     // Emil esta in
 }

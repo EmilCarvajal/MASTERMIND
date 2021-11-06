@@ -45,13 +45,19 @@ public class Board{
         tablero+="            MASTERMIND\n";
         tablero+="-----------------------------------------\n";
 
-        for (String cod : CodigoSecreto.getSecretCode().split("")) {
-            tablero += cod + " ";
+        if (CodigoSecreto.is_secret){
+            tablero+= "SEC    SEC    SEC    SEC    | \n";
         }
+        else{
+            for (String cod : CodigoSecreto.getSecretCode().split("")) {
+                tablero += cod + " ";
+            }
+        }
+        /*
         tablero += "+-------------------+\n";
         tablero += "| intents | pistes  |\n";
         tablero += "+-------------------+\n";
-
+        */
         for (int i = 0; i < MAX_OPPORTUNITIES; i++) {
             if (this.m_listCodigos.size() > i) {
                 tablero += "| ";
@@ -94,6 +100,15 @@ public class Board{
         tauler += "+-------------------+";
         setTauler(tauler);
     }
-*/
+
+  public static void main(String[] args) {
+      Player p1= new Player();
+      String answer =  p1.IntroduceCode();
+      if(answer!=null){System.out.println(answer);}
+      //List<String> codisColorsCorrectes = new ArrayList<String>(MasterMindGame.COLORS);
+      //System.out.println(codisColorsCorrectes);
+  }
+
+   */
 
 }

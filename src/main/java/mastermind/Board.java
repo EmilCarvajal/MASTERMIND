@@ -7,66 +7,68 @@ import static mastermind.MasterMindGame.MAX_OPPORTUNITIES;
 //NO NECESSARIA DE TESTEJAR, NOMES FA PRINTS
 //clase encargada de printar el tauler mostrant cada intent amb la seva pista corresponent
 public class Board{
-
-    //	historial de codis introduits per el jugador
-    private ArrayList<Code> m_listCodigos;
-    //	historial de pistes introduits per el jugador
-    private ArrayList<Hint> m_listEnciertos;
-    private String tauler;
-
+    // METODOS
     public Board() {
-//		inicialitzacio de les variable
         m_listCodigos = new ArrayList<Code>();
         m_listEnciertos = new ArrayList<Hint>();
     }
 
-    //	GETTER
-    public ArrayList<Code> getCodigosTablero() {
-//		retorna el historial de codis com una ArrayList
-        return this.m_listCodigos;
-    }
-
-    public ArrayList<Hint> getPistasTablero() {
-//		retorna el historial de pistes com una ArrayList
-        return this.m_listEnciertos;
-    }
-
-    //	SETTER
     public void añadirCodigosTablero(Code codigo) {
         this.m_listCodigos.add(codigo);
     }
-
-    //	SETTER
     public void añadirPistasTablero(Hint pista) {
         this.m_listEnciertos.add(pista);
-
     }
+    public String getTablero() {
+        return tauler;
+    }
+    public ArrayList<Code> getCodigosTablero() {
+        return this.m_listCodigos;
+    }
+    public ArrayList<Hint> getPistasTablero() {
+        return this.m_listEnciertos;
+    }
+    public void setTablero(String tablero) {
+        this.tauler = tablero;
+    }
+
+    // ATRIBUTOS
+    private SecretCode CodigoSecreto;
+    private String tauler;
+    private ArrayList<Code> m_listCodigos;
+    private ArrayList<Hint> m_listEnciertos;
+
 
     public void mostrarTablero() {
         String tablero = "";
         tablero+="-----------------------------------------\n";
         tablero+="            MASTERMIND\n";
         tablero+="-----------------------------------------\n";
+
+        for (String cod : CodigoSecreto.getSecretCode().split("")) {
+            tablero += cod + " ";
+        }
         tablero += "+-------------------+\n";
         tablero += "| intents | pistes  |\n";
         tablero += "+-------------------+\n";
+
         for (int i = 0; i < MAX_OPPORTUNITIES; i++) {
             if (this.m_listCodigos.size() > i) {
                 tablero += "| ";
-                for (String codiChar : m_listCodigos.get(i).getCodigo().split("")) {
-                    tablero += codiChar + " ";
+                for (String cod : m_listCodigos.get(i).getCodigo().split("")) {
+                    tablero += cod + " ";
                 }
-                tablero += ": ";
-                for (String pistaChar : m_listCodigos.get(i).getPista().split("")) {
-                    tablero += pistaChar + " ";
+                tablero += "| ";
+                for (String pista : m_listEnciertos.get(i).getHint().split("")) {
+                    tablero += pista + " ";
                 }
                 tablero += "|\n";
             } else {
-                tablero += "| - - - - : - - - - |\n";
+                tablero += "| - - - - | - - - - |\n";
             }
+            tablero+="-----------------------------------------\n";
         }
-        tauler += "+-------------------+";
-        setTauler(tauler);
+        setTablero(tauler);
     }
   /*
     public void setTauler() {
@@ -93,13 +95,5 @@ public class Board{
         setTauler(tauler);
     }
 */
-    public String getTauler() {
-        return tauler;
-    }
-
-    public void setTauler(String tauler) {
-        this.tauler = tauler;
-    }
-
 
 }

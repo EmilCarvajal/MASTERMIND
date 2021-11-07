@@ -60,13 +60,13 @@ public class MasterMindGame {
         if(!this.secretCode.checkCode(code)){
             System.out.println("Has fallat!");
             this.board.añadirCodigosTablero(new Code(code));
-            this.board.añadirPistasTablero(this.secretCode.createHint(new Code(code)));
+            this.board.añadirPistasTablero((Hint) this.secretCode.createHint(new Code(code)));
             this.board.mostrarTablero();
             this.board.mostrarTablero();
         }
         else{
             this.board.añadirCodigosTablero(new Code(code));
-            this.board.añadirPistasTablero(this.secretCode.createHint(new Code(code)));
+            this.board.añadirPistasTablero((Hint) this.secretCode.createHint(new Code(code)));
             this.board.mostrarTablero();
             this.isOver = true;
             System.out.println("YOU WON !!");

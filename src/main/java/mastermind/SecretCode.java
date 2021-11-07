@@ -31,14 +31,27 @@ public class SecretCode {
         return this.secretCode;
     }
     public static void main(String[] args) {
-        SecretCode code = new SecretCode();
-        System.out.println(code.getSecretCode());
+       /* SecretCode secretCode = new SecretCode();
+        System.out.println(secretCode.getSecretCode());
+        Hint pista;
+        Code code = new Code(secretCode.getSecretCode());
+        pista = secretCode.createHint(code);
+        System.out.println(pista.getHint());*/
+        SecretCode secretCode = new SecretCode();
+        Code code = new Code();
+        secretCode.setSecretCode("RGYO");
+        code.setCode("RYGR");
+        Hint pista;
+        pista= secretCode.createHint(code);
+        String str_pista= pista.getHint();
+        System.out.println(str_pista);
+
     }
 
     public boolean checkCode(String code) {
         return this.secretCode.equals(code);
     }
-    public Object createHint(Code code) {
+    public Hint createHint(Code code) {
 
         String pistaSortida = "";
 

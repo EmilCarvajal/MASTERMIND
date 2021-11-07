@@ -1,11 +1,9 @@
 package mastermind;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SecretCodeTest {
     @Test
@@ -57,12 +55,53 @@ public class SecretCodeTest {
         assertFalse(secretCode.checkCode(compareCode.getSecretCode()));
     }
     @Test
-    public void testGenerateHint() {
+    public void testGenerateHint1() {
         SecretCode secretCode = new SecretCode();
         Code code = new Code();
         code.setCode("RGBY");
         assertTrue(secretCode.createHint(code) instanceof Hint);
     }
+    @Test
+    /*Generamos un nuevo codigo que sea igual al código secreto que también generamos, por tanto la funciíon GenerateHint() ha de
+     darse cuenta de que coinciden color y posiciones (son iguales) y por tanto retornar 'xxxx'*/
+    public void testGenerateHint2() {
+        SecretCode secretCode = new SecretCode();
+        Code code = new Code();
+        code.setCode(secretCode.getSecretCode());
+
+        Hint pista;
+        pista= secretCode.createHint(code);
+        String str_pista = pista.getHint();
+       assertEquals("xxxx",str_pista);
+    }
+    @Test
+    /*Forzamos para que los codigos(code y secretCode) sean diferentes, por tanto la funciíon GenerateHint() ha de
+    darse cuenta y retornar 'oooo'*/
+    public void testGenerateHint3() {
+        SecretCode secretCode = new SecretCode();
+        Code code = new Code();
+        secretCode.setSecretCode("RGYO");
+        code.setCode("OYGR");
+        Hint pista;
+        pista= secretCode.createHint(code);
+        String str_pista= pista.getHint();
+        assertEquals("oooo",str_pista);
+    }
+
+    @Test
+    /*Hacemos que coincida un caracter( el primero por ejemplo), y el resto no,
+     por tanto el resultado de la pista ha de ser 'xooo'.*/
+    public void testGenerateHint4() {
+        SecretCode secretCode = new SecretCode();
+        Code code = new Code();
+        secretCode.setSecretCode("RGYO");
+        code.setCode("RYGR");
+        Hint pista;
+        pista= secretCode.createHint(code);
+        String str_pista= pista.getHint();
+        assertEquals("xooo",str_pista);
+    }
+
 
 
 }

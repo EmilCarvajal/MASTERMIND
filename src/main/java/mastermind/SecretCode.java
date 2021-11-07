@@ -1,16 +1,22 @@
 package mastermind;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class SecretCode {
 
-    private final String secretCode;
+    private  String secretCode;
+    public boolean is_secret;
 
     public SecretCode(){
         this.secretCode=generateSecretCode();
+        this.is_secret = true;
 
+    }
+    public void setSecretCode(String secretCode) {
+        this.secretCode= secretCode;
     }
     private String generateSecretCode(){
         String code="";
@@ -29,4 +35,48 @@ public class SecretCode {
         System.out.println(code.getSecretCode());
     }
 
+    public boolean checkCode(String code) {
+        return this.secretCode.equals(code);
+    }
+    public Object createHint(Code code) {
+
+        String pistaSortida = "";
+
+        for (int i = 0; i < MasterMindGame.CODE_LENGTH; i++) {
+            if (code.getCodigo().split("")[i].equals(this.secretCode.split("")[i])) {
+                pistaSortida += "x";
+            } else {
+                boolean hiApareix = false;
+                for (int j = 0; j <MasterMindGame.CODE_LENGTH ; j++) {
+                    if (code.getCodigo().split("")[i].equals(this.secretCode.split("")[j])) {
+                        pistaSortida += "o";
+                        hiApareix = true;
+                        break;
+                    }
+                }
+                if (!hiApareix) {
+                    pistaSortida += "-";
+                }
+            }
+        }
+        return new Hint(ordenarPista(pistaSortida));
+    }
+
+    private String ordenarPista(String pistaDesordenada) {
+        char pistaChars[] = pistaDesordenada.toCharArray();
+        Arrays.sort(pistaChars);
+        String pistaOrdenada = "";
+        //Si Hint no tiene la mida adequada retorna NULL
+        if(pistaChars.length != MasterMindGame.CODE_LENGTH) {
+            return null;
+        } else {
+            for (int i = 1; i < pistaChars.length + 1; i++) {
+                pistaOrdenada += pistaChars[pistaChars.length - i];
+            }
+            return pistaOrdenada;
+        }
+    }
+
+
 }
+

@@ -64,4 +64,5 @@ public class SecretCodeTest {
         assertTrue(secretCode.createHint(code) instanceof Hint);
     }
 
+
 }

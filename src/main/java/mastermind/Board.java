@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import static mastermind.MasterMindGame.MAX_OPPORTUNITIES;
 
-//NO NECESSARIA DE TESTEJAR, NOMES FA PRINTS
-//clase encargada de printar el tauler mostrant cada intent amb la seva pista corresponent
+
 public class Board{
     // METODOS
     public Board() {

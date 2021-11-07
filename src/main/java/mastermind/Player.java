@@ -8,8 +8,9 @@ public class Player {
 
     private String name;
 
+
     public Player(){
-        askPlayerName();
+        //askPlayerName();
     }
     public Player(String name){
         this.name =name;
@@ -18,7 +19,7 @@ public class Player {
     public String getName(){
         return name;
     }
-
+    public void setName(String str){this.name = str;}
     public void askPlayerName(){
         System.out.println("Please, enter you name (Max 10 characters): ");
         Scanner scanner = new Scanner(System.in);//cin. Para introducir por teclado

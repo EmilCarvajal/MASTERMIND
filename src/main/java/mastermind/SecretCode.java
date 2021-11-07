@@ -6,11 +6,14 @@ import java.util.Random;
 
 public class SecretCode {
 
+    // ATRIBUTOS
     private final String secretCode;
+    public boolean is_secret;
 
+    // METODOS
     public SecretCode(){
         this.secretCode=generateSecretCode();
-
+        this.is_secret = true;
     }
     private String generateSecretCode(){
         String code="";

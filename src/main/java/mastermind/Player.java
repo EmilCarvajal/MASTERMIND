@@ -8,7 +8,6 @@ public class Player {
 
     private String name;
 
-
     public Player(){
         //askPlayerName();
     }
@@ -29,11 +28,12 @@ public class Player {
 
     public String IntroduceCode(){
         System.out.println("Available colors:");
-        for(int i=0;i < MasterMindGame.COLORS.size(); i++){
-            System.out.println(MasterMindGame.COLORS.get(i));
+        for(int i = 0; i < MasterMindGame.COLORS.size(); i++){
+            System.out.print(MasterMindGame.COLORS.get(i)+ " ");
         }
-        Scanner scanner = new Scanner(System.in);
+        System.out.println();
         System.out.println("Which do you think is the secret code?.Code must be a combination of 4 colors");
+        Scanner scanner = new Scanner(System.in);
         String player_code= scanner.nextLine().toUpperCase();
 
         //Verificar código introducido
@@ -73,12 +73,6 @@ public class Player {
         return true;
     }
 
-    public static void main(String[] args) {
-        Player p1= new Player();
-        String answer =  p1.IntroduceCode();
-        if(answer!=null){System.out.println(answer);}
-        //List<String> codisColorsCorrectes = new ArrayList<String>(MasterMindGame.COLORS);
-        //System.out.println(codisColorsCorrectes);
-    }
+
     // Emil esta in
 }

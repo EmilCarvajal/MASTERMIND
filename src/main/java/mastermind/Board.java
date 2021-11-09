@@ -1,9 +1,5 @@
 package mastermind;
-
 import java.util.ArrayList;
-
-import static mastermind.MasterMindGame.MAX_OPPORTUNITIES;
-
 
 public class Board{
     // METODOS
@@ -38,42 +34,47 @@ public class Board{
     private ArrayList<Hint> m_listEnciertos;
 
 
-    public void mostrarTablero() {
+    public void mostrarTablero(SecretCode CodigoSecreto) {
         String tablero = "";
-        tablero+="-----------------------------------------\n";
-        tablero+="            MASTERMIND\n";
-        tablero+="-----------------------------------------\n";
+        tablero+="-----------------------------------------------------\n";
+        tablero+="                    MASTERMIND\n";
+        tablero+="-----------------------------------------------------\n";
 
         if (CodigoSecreto.is_secret){
-            tablero+= "SEC    SEC    SEC    SEC    | \n";
+            tablero+= "| SEC    SEC    SEC    SEC    | \n";
         }
-        else{
+        //else{
+        if (CodigoSecreto.is_secret){
+            tablero += "| ";
             for (String cod : CodigoSecreto.getSecretCode().split("")) {
-                tablero += cod + " ";
+                tablero +=  cod + "      ";
             }
+            tablero += "|\n";
         }
+        tablero+="-----------------------------------------------------\n";
         /*
         tablero += "+-------------------+\n";
         tablero += "| intents | pistes  |\n";
         tablero += "+-------------------+\n";
         */
-        for (int i = 0; i < MAX_OPPORTUNITIES; i++) {
+        for (int i = 0; i < MasterMindGame.MAX_OPPORTUNITIES; i++) {
             if (this.m_listCodigos.size() > i) {
                 tablero += "| ";
                 for (String cod : m_listCodigos.get(i).getCodigo().split("")) {
-                    tablero += cod + " ";
+                    tablero += cod + "      ";
                 }
                 tablero += "| ";
                 for (String pista : m_listEnciertos.get(i).getHint().split("")) {
-                    tablero += pista + " ";
+                    tablero += pista + "    ";
                 }
                 tablero += "|\n";
             } else {
-                tablero += "| - - - - | - - - - |\n";
+                tablero += "| -      -      -      -      | -    -    -    -    |\n";
             }
-            tablero+="-----------------------------------------\n";
+            tablero+="-----------------------------------------------------\n";
         }
-        setTablero(tauler);
+        setTablero(tablero);
+        System.out.println(tablero);
     }
   /*
     public void setTauler() {

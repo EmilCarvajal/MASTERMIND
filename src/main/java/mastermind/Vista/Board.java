@@ -1,5 +1,13 @@
-package mastermind;
+package mastermind.Vista;
+
+import mastermind.Controlador.MasterMindGame;
+
+import mastermind.Model.Code;
+import mastermind.Model.Hint;
+import mastermind.Model.SecretCode;
+
 import java.util.ArrayList;
+
 
 public class Board{
     // METODOS

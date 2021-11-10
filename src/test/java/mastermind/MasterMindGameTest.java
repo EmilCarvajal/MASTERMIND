@@ -1,5 +1,6 @@
 package mastermind;
 
+import mastermind.Controlador.MasterMindGame;
 import org.junit.Assert;
 import org.junit.Test;
 

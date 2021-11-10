@@ -1,5 +1,6 @@
 package mastermind;
 
+import mastermind.Model.Code;
 import org.junit.jupiter.api.Test;
 import org.hamcrest.Matchers;
 

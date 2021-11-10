@@ -1,7 +1,10 @@
 package mastermind;
+import mastermind.Controlador.MasterMindGame;
+import mastermind.Model.Code;
+import mastermind.Model.Hint;
+import mastermind.Model.SecretCode;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,7 +13,7 @@ public class SecretCodeTest {
     public void testGenerateSecretCode1(){
         SecretCode code = new SecretCode();
         String generated_code = code.getSecretCode();
-        Assert.assertEquals(generated_code.length(),MasterMindGame.CODE_LENGTH);
+        Assert.assertEquals(generated_code.length(), MasterMindGame.CODE_LENGTH);
 
     }
     @Test

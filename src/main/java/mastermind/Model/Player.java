@@ -1,12 +1,13 @@
-package mastermind;
+package mastermind.Model;
 
-import java.util.ArrayList;
-import java.util.List;
+import mastermind.Controlador.MasterMindGame;
+
 import java.util.Scanner;
 
 public class Player {
 
     private String name;
+
 
     public Player(){
         //askPlayerName();

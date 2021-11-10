@@ -1,4 +1,4 @@
-package mastermind;
+package mastermind.Model;
 
 // Clase que guarda cada pista
 public class Hint{

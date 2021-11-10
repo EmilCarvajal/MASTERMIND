@@ -1,4 +1,6 @@
-package mastermind;
+package mastermind.Model;
+
+import mastermind.Controlador.MasterMindGame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +32,8 @@ public class SecretCode {
     public String getSecretCode(){
         return this.secretCode;
     }
+
+    /*
     public static void main(String[] args) {
        /* SecretCode secretCode = new SecretCode();
         System.out.println(secretCode.getSecretCode());
@@ -37,6 +41,7 @@ public class SecretCode {
         Code code = new Code(secretCode.getSecretCode());
         pista = secretCode.createHint(code);
         System.out.println(pista.getHint());*/
+    /*
         SecretCode secretCode = new SecretCode();
         Code code = new Code();
         secretCode.setSecretCode("RGYO");
@@ -47,7 +52,7 @@ public class SecretCode {
         System.out.println(str_pista);
 
     }
-
+*/
     public boolean checkCode(String code) {
         return this.secretCode.equals(code);
     }

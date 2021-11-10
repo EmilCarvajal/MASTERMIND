@@ -1,5 +1,7 @@
 package mastermind;
 
+import mastermind.Controlador.MasterMindGame;
+
 import java.util.ArrayList;
 import java.util.List;
 

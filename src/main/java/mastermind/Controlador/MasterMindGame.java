@@ -23,16 +23,20 @@ public class MasterMindGame {
     private Player player;
     private ArrayList<String> listaIntentos;
 
+    private MGConstructor Status;
+
     // METODOS
     public MasterMindGame(){
+        /*
         secretCode = new SecretCode();
         intentos = 0;
         Win = false;
         isOver = false;
         board = new Board();
         player = new Player();
-        listaIntentos = new ArrayList<>();
-
+        listaIntentos = new ArrayList<>();*/
+        Status = new MGConstructor();
+        Status.tranferStatus(this);
     }
     public boolean getisOver(){
         return this.isOver;
@@ -46,7 +50,7 @@ public class MasterMindGame {
     public void setIntentos(int intentos) {
         this.intentos = intentos;
     }
-    private void setPrivVar(SecretCode secretCode, int intentos, boolean win, boolean isOver, Board board, Player player
+    public void setPrivVar(SecretCode secretCode, int intentos, boolean win, boolean isOver, Board board, Player player
         , ArrayList listaIntentos) {
         this.secretCode = secretCode;
         this.intentos = intentos;

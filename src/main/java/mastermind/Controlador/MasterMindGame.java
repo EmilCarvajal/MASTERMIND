@@ -62,10 +62,6 @@ public class MasterMindGame {
     }
     //--
 
-    void icrementaIntentos(){
-        this.intentos++;
-    }
-
     public void mainGame(){
         this.intentos=0;
         while(!isOver){

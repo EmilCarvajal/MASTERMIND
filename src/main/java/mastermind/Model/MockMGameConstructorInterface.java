@@ -11,7 +11,7 @@ public class MockMGameConstructorInterface implements MGameConstructorInterface 
                                     Board tablero, Player player, ArrayList listaIntentos){
 
         secretCode.setSecretCode("ygbr".toUpperCase(Locale.ROOT));
-        intentos = 10;
+        intentos = 0;
 
         player = new Player();
         player.setName("Juan");

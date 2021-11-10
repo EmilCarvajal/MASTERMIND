@@ -56,7 +56,7 @@ public class PlayerTest {
         Random random = new Random();
         try
         {
-            filePath = "src/Fitxers/"+ nomFitxer;
+            filePath = "src/main/java//mastermind/Fitxers/"+ nomFitxer;
             file = new FileWriter(filePath);
             pw = new PrintWriter(file);
 

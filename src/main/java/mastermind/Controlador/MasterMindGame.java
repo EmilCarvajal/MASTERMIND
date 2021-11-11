@@ -135,7 +135,5 @@ public class MasterMindGame {
         System.out.println("intentos "+intentos);
         //setPrivVar(secretCode,intentos,Win,isOver,board,player,listaIntentos);
     }
-    // --
-
 
 }

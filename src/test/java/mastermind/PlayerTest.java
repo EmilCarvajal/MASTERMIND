@@ -23,9 +23,6 @@ public class PlayerTest {
     Player p1 = new Player();
     Assert.assertTrue(p1.getName() instanceof String);
     }
-
-
-
     //To test only escriureFitxer()
     //@ParameterizedTest
     //@ValueSource(strings = {"CorrectCodes.txt","IncorrectCodes.txt"}

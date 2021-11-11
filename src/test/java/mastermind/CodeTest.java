@@ -46,4 +46,23 @@ public class CodeTest {
             assertThat("error valid char",COLORS, Matchers.hasItem(ch));
         }
     }
+
+    @Test
+    void code_corrrectTest(){
+        t_codigo = new Code("brg");
+
+
+        List<Character> COLORS = Arrays.asList('R', 'B', 'Y', 'G', 'P', 'O','V');
+
+        for (int c = t_codigo.getCodigo().length () -1; c>= 0; c--){
+            char ch = t_codigo.getCodigo().toUpperCase(Locale.ROOT).charAt (c);
+            System.out.println (ch);
+            assertThat("error valid char",COLORS, Matchers.hasItem(ch));
+        }
+
+        assertThat(t_codigo.getCodigo(), Matchers.isA(String.class));
+        Assert.assertEquals( t_codigo.getCodigo().toUpperCase(),t_codigo.getCodigo().toUpperCase(Locale.ROOT));
+        assertThat("tamaño no valido",t_codigo.getCodigo(), Matchers.hasLength(4)); //comprovar tamaño lista
+
+    }
 }

@@ -103,9 +103,27 @@ public class TestMasterMind {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/Pairwise.csv",numLinesToSkip = 1,delimiterString = ";")
-    public void Test_pairwaseCSV(final String v1,final String v2,final String v3,final String v4) {
+    public void Test_PairwiseCSV(final String v1,final String v2,final String v3,final String v4) {
+        // COMPROVEM TOTES LES PARELLES DISCRETES DE POSIBLES ENTRADES
         String codigo = v1+v2+v3+v4;
+        //List<String> p_colors = new ArrayList<String>(List.of(codigo));
         System.out.println(codigo);
+
+
+        // Set up mock
+        MockPlayer mockPlayer = new MockPlayer();
+        mockPlayer.setCode(codigo);
+
+        // Declaració y setup clase que crida al Mock
+        MasterMindGame m_game = new MasterMindGame();
+        m_game.setPlayer(mockPlayer);
+        System.out.println(m_game.playerInterface.IntroduceCode());
+        //Prova i validació
+        m_game.mainGame_Mock();
+        //System.out.println(m_game.code_answer_correct);
+        //assertTrue("Code_answer is not correct",m_game.code_answer_correct);
+        //assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
+
     }
 
 }

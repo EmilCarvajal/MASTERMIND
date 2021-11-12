@@ -9,4 +9,8 @@ public class MockPlayer implements PlayerInterface {
     public String IntroduceCode(){return code ;}
     public Boolean correct_code(String st ){
         return true;}
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 }

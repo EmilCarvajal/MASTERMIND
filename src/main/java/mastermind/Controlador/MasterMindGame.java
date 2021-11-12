@@ -136,4 +136,27 @@ public class MasterMindGame {
         //setPrivVar(secretCode,intentos,Win,isOver,board,player,listaIntentos);
     }
 
+    public void mainGame_Mock(){
+        this.intentos=0;
+
+        while(!isOver){
+            this.isOver=true;
+            if(this.intentos < MAX_OPPORTUNITIES){
+                String code_answer = this.playerInterface.IntroduceCode();
+                this.listaIntentos.add(code_answer);
+                //Si el codigo introducido no es valido se devuelve null.
+                while ( code_answer == null){
+                    //Volvemos a pedir que introduzca el código si el código introducido por el usuario no preseta el formato valido.
+                    code_answer = this.playerInterface.IntroduceCode();
+                }
+                introduceCode(code_answer);
+                this.intentos++;
+            }
+            else{
+                this.isOver=true;
+                System.out.println("NO MORE OPPORTUNITIES LEFT. END OF THE GAME. ");
+            }
+        }
+    }
+
 }

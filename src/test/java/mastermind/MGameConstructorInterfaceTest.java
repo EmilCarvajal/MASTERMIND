@@ -27,7 +27,7 @@ public class MGameConstructorInterfaceTest {
         System.out.println("intentos "+m_game.getIntentos());
 
         assertEquals("Expected Secretcode is not correct","ygbr".toUpperCase(Locale.ROOT),m_game.getSecretCode());
-        assertEquals("Intentos not correct",10,m_game.getIntentos());
+        assertEquals("Intentos not correct",0,m_game.getIntentos());
         assertFalse("Win not correct",m_game.getWin());
         assertFalse("IsOver not correct",m_game.getisOver());
         System.out.println("------------------------------------");

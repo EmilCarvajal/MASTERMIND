@@ -74,6 +74,4 @@ public class Player {
         return true;
     }
 
-
-    // Emil esta in
 }

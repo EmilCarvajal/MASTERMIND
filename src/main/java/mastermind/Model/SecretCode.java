@@ -32,27 +32,6 @@ public class SecretCode {
     public String getSecretCode(){
         return this.secretCode;
     }
-
-    /*
-    public static void main(String[] args) {
-       /* SecretCode secretCode = new SecretCode();
-        System.out.println(secretCode.getSecretCode());
-        Hint pista;
-        Code code = new Code(secretCode.getSecretCode());
-        pista = secretCode.createHint(code);
-        System.out.println(pista.getHint());*/
-    /*
-        SecretCode secretCode = new SecretCode();
-        Code code = new Code();
-        secretCode.setSecretCode("RGYO");
-        code.setCode("RYGR");
-        Hint pista;
-        pista= secretCode.createHint(code);
-        String str_pista= pista.getHint();
-        System.out.println(str_pista);
-
-    }
-*/
     public boolean checkCode(String code) {
         return this.secretCode.equals(code);
     }
@@ -81,6 +60,7 @@ public class SecretCode {
     }
 
     private String ordenarPista(String pistaDesordenada) {
+
         char pistaChars[] = pistaDesordenada.toCharArray();
         Arrays.sort(pistaChars);
         String pistaOrdenada = "";

@@ -1,6 +1,7 @@
 package mastermind.Controlador;
 
 import mastermind.Model.*;
+import mastermind.Model.Mocks.MGConstructor;
 import mastermind.Vista.Board;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class MasterMindGame {
     private Board board;
     private Player player;
     private ArrayList<String> listaIntentos;
+    private Hint pista;
 
     private MGConstructor Status;
 
@@ -44,6 +46,10 @@ public class MasterMindGame {
     public boolean getWin(){return this.Win;}
     public ArrayList<String> getListaIntentos(){return this.listaIntentos;}
     public int getIntentos(){return this.intentos;}
+    public Board getBoard() {
+        return board;
+    }
+
     public String getSecretCode(){return this.secretCode.getSecretCode();}
 
     // SETS PARA MOCKS
@@ -86,20 +92,22 @@ public class MasterMindGame {
 
     //FUNCION IMPORTANTE
     public void introduceCode(String code){
-        if(!this.secretCode.checkCode(code)){
+        Code user_code =  new Code(code);
+        if(!user_code.checkCode(this.secretCode.getSecretCode())){
             System.out.println("Has fallat!");
             this.board.añadirCodigosTablero(new Code(code));
-            this.board.añadirPistasTablero((Hint) this.secretCode.createHint(new Code(code)));
+            pista= new Hint(this.secretCode, user_code);
+            this.board.añadirPistasTablero(pista);
             this.board.mostrarTablero(secretCode);
         }
         else{
             this.board.añadirCodigosTablero(new Code(code));
-            this.board.añadirPistasTablero((Hint) this.secretCode.createHint(new Code(code)));
+            pista= new Hint(this.secretCode, user_code);
+            this.board.añadirPistasTablero(pista);
             this.board.mostrarTablero(secretCode);
             this.isOver = true;
             System.out.println("YOU WON !!");
             this.Win = true;
-
         }
     }
     // MOCK PLAYER --
@@ -137,7 +145,7 @@ public class MasterMindGame {
     }
 
     public void mainGame_Mock(){
-        this.intentos=0;
+        this.intentos = 0;
 
         while(!isOver){
             //this.isOver=true;
@@ -156,10 +164,35 @@ public class MasterMindGame {
                 this.intentos++;
             }
             else{
-                this.isOver=true;
+                this.isOver = true;
                 System.out.println("NO MORE OPPORTUNITIES LEFT. END OF THE GAME. ");
             }
         }
     }
+
+    //Mock SecretCode
+    public SecretCode_Interface SecretCodeInterface;
+    public void setSecretCodeInterface(SecretCode_Interface MockSCode){ this.SecretCodeInterface = MockSCode ;}
+
+    public void introduceCode_Mock_SecretCode(String code){
+        Code user_code =  new Code(code);
+        if(!user_code.checkCode(SecretCodeInterface.getSecretCode())){
+            System.out.println("Has fallat!");
+            this.board.añadirCodigosTablero(new Code(code));
+            pista= new Hint(SecretCodeInterface, user_code);
+            this.board.añadirPistasTablero(pista);
+            this.board.mostrarTablero(secretCode);
+        }
+        else{
+            this.board.añadirCodigosTablero(new Code(code));
+            pista= new Hint(SecretCodeInterface, user_code);
+            this.board.añadirPistasTablero(pista);
+            this.board.mostrarTablero(secretCode);
+            this.isOver = true;
+            System.out.println("YOU WON !!");
+            this.Win = true;
+        }
+    }
+
 
 }

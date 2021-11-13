@@ -32,48 +32,10 @@ public class SecretCode {
     public String getSecretCode(){
         return this.secretCode;
     }
-    public boolean checkCode(String code) {
+    /*public boolean checkCode(String code) {
         return this.secretCode.equals(code);
-    }
-    public Hint createHint(Code code) {
+    }*/
 
-        String pistaSortida = "";
-
-        for (int i = 0; i < MasterMindGame.CODE_LENGTH; i++) {
-            if (code.getCodigo().split("")[i].equals(this.secretCode.split("")[i])) {
-                pistaSortida += "x";
-            } else {
-                boolean hiApareix = false;
-                for (int j = 0; j <MasterMindGame.CODE_LENGTH ; j++) {
-                    if (code.getCodigo().split("")[i].equals(this.secretCode.split("")[j])) {
-                        pistaSortida += "o";
-                        hiApareix = true;
-                        break;
-                    }
-                }
-                if (!hiApareix) {
-                    pistaSortida += "-";
-                }
-            }
-        }
-        return new Hint(ordenarPista(pistaSortida));
-    }
-
-    private String ordenarPista(String pistaDesordenada) {
-
-        char pistaChars[] = pistaDesordenada.toCharArray();
-        Arrays.sort(pistaChars);
-        String pistaOrdenada = "";
-        //Si Hint no tiene la mida adequada retorna NULL
-        if(pistaChars.length != MasterMindGame.CODE_LENGTH) {
-            return null;
-        } else {
-            for (int i = 1; i < pistaChars.length + 1; i++) {
-                pistaOrdenada += pistaChars[pistaChars.length - i];
-            }
-            return pistaOrdenada;
-        }
-    }
 
 
 }

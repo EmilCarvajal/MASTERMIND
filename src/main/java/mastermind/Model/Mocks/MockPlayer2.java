@@ -1,4 +1,6 @@
-package mastermind.Model;
+package mastermind.Model.Mocks;
+
+import mastermind.Model.PlayerInterface;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -18,7 +20,8 @@ public class MockPlayer2 implements PlayerInterface {
         return this.codigosPlayer.get(cont_actual) ;
     }
     public Boolean correct_code(String st ){
-        return true;}
+        return true;
+    }
 
     public void setCode(String code) {
         this.code = code;

@@ -20,7 +20,8 @@ public class MasterMindGameTest {
         Assert.assertEquals(test,true);
 
     }
-    @Test //no esta bien
+
+    @Test
     public void Test_Lista_Codigos(){
         // Set up mock
         MockPlayer2 mockPlayer2 = new MockPlayer2();
@@ -31,8 +32,6 @@ public class MasterMindGameTest {
         System.out.println(m_game.playerInterface.IntroduceCode());
         //Prova i validació
         m_game.mainGame_Mock();
-
-
 
         //System.out.println(m_game.code_answer_correct);
         Assert.assertTrue("Code_answer is not correct",m_game.code_answer_correct);

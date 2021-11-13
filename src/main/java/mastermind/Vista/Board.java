@@ -60,11 +60,7 @@ public class Board{
             tablero += "|\n";
         }
         tablero+="-----------------------------------------------------\n";
-        /*
-        tablero += "+-------------------+\n";
-        tablero += "| intents | pistes  |\n";
-        tablero += "+-------------------+\n";
-        */
+
         for (int i = 0; i < MasterMindGame.MAX_OPPORTUNITIES; i++) {
             if (this.m_listCodigos.size() > i) {
                 tablero += "| ";
@@ -84,39 +80,5 @@ public class Board{
         setTablero(tablero);
         System.out.println(tablero);
     }
-  /*
-    public void setTauler() {
-        String tauler = "";
-        tauler += "+-------------------+\n";
-        tauler += "| intents | pistes  |\n";
-        tauler += "+-------------------+\n";
-        for (int i = 0; i < Mastermind.MAX_INTENTS; i++) {
-            if (this.historialCodis.size() > i) {
-                tauler += "| ";
-                for (String codiChar : historialCodis.get(i).getCodi().split("")) {
-                    tauler += codiChar + " ";
-                }
-                tauler += ": ";
-                for (String pistaChar : historialPistes.get(i).getPista().split("")) {
-                    tauler += pistaChar + " ";
-                }
-                tauler += "|\n";
-            } else {
-                tauler += "| - - - - : - - - - |\n";
-            }
-        }
-        tauler += "+-------------------+";
-        setTauler(tauler);
-    }
-
-  public static void main(String[] args) {
-      Player p1= new Player();
-      String answer =  p1.IntroduceCode();
-      if(answer!=null){System.out.println(answer);}
-      //List<String> codisColorsCorrectes = new ArrayList<String>(MasterMindGame.COLORS);
-      //System.out.println(codisColorsCorrectes);
-  }
-
-   */
 
 }

@@ -15,7 +15,7 @@ public class Mock_2_MGame extends MasterMindGame {
     private Board board;
     private Player player;
     private ArrayList<String> listaIntentos;
-    public static final List<String> codigosPlayer  = new ArrayList<String>(List.of("RRRR", "RBRR", "RBGR", "RBGO", "RBGP", "RBGG","FFFF"));//----
+    public List<String> codigosPlayer;//  = new ArrayList<String>(List.of("RRRR", "RBRR", "RBGR", "RBGO", "RBGP", "RBGG","FFFF"));//----
 
     public Mock_2_MGame(){
         intentos = 0;
@@ -26,18 +26,18 @@ public class Mock_2_MGame extends MasterMindGame {
         player = new Player();
         listaIntentos= new ArrayList<String>();
     }
-    /*public void setSecretCode(SecretCode secretCode) {
-        this.secretCode = secretCode;
+    public void setCodigosPlayer(ArrayList<String> str_list){
+         this.codigosPlayer= str_list;
     }
-    public String getSecretCode(){
-        return secretCode.getSecretCode();//Returns a String of the secret Code
+
+    public SecretCode getSecretCodeObject(){
+        return this.secretCode;//Returns a String of the secret Code
     }
-    public void incrementIntentos(){ this.intentos++; }
-*/
-    public int getIntentos(){return this.intentos;}
+
+    public int getIntentos() {return this.intentos; }
+    public boolean getWin() {return this.Win; }
     public void mainGame(){
 
-        this.secretCode.setSecretCode("RBGG"); //---
         while(!isOver){
 
             if(this.intentos < MasterMindGame.MAX_OPPORTUNITIES){

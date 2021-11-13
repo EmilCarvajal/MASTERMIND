@@ -21,7 +21,7 @@ public class CodeTest {
     @Test
     void contructor_test_lenth(){
         t_codigo = new Code("holaa");
-        assertNotEquals("tamaño no valido",t_codigo.getCodigo(), Matchers.hasLength(4)); //comprovar tamaño lista
+        assertThat("tamaño no valido",t_codigo.getCodigo(), Matchers.hasLength(4)); //comprovar tamaño lista
 
     }
 

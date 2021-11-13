@@ -86,7 +86,7 @@ public class SecretCodeTest {
 
     @Test
     public void test_OrdenaPista_GenerateHint_1() {
-        /*Forzamos para que los codigos(code y secretCode) sean diferentes, por tanto
+        /*Forzamos para que los codigos(code y secretCode) sean diferentes pero con colores correctos, por tanto
         la funciíon GenerateHint() ha de darse cuenta y retornar 'oooo' */
 
         Code code = new Code();
@@ -114,6 +114,7 @@ public class SecretCodeTest {
         Hint pista;
         pista = secretCodeObj.createHint(code);
         String str_pista = pista.getHint();
+        System.out.println( pista.getHint());
 
         assertEquals("xooo", str_pista);
     }
@@ -167,6 +168,23 @@ public class SecretCodeTest {
         String str_pista = pista.getHint();
 
         assertEquals("xxxx", str_pista);
+    }
+
+    @Test
+    public void test_OrdenaPista_GenerateHint_6() {
+        /*Test en el que nada coincide en quanto a los colores introducidos.
+         El usuario no acierta nada, por tanto se retorna "----" */
+
+        Code code = new Code();
+        code.setCode("YOPG");
+
+        secretCodeObj.setSecretCode("RRRR");
+
+        Hint pista;
+        pista = secretCodeObj.createHint(code);
+        String str_pista = pista.getHint();
+
+        assertEquals("----", str_pista);
     }
 
 }

@@ -29,7 +29,8 @@ public class MasterMindGameTest {
         // Declaració y setup clase que crida al Mock
         MasterMindGame m_game = new MasterMindGame();
         m_game.setPlayer(mockPlayer2);
-        System.out.println(m_game.playerInterface.IntroduceCode());
+        //String str = m_game.playerInterface.IntroduceCode();
+       // System.out.println(str);
         //Prova i validació
         m_game.mainGame_Mock();
 

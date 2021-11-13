@@ -2,17 +2,13 @@ package mastermind;
 
 
 import mastermind.Controlador.MasterMindGame;
-import mastermind.Model.Code;
-import mastermind.Model.MockPlayer;
-import mastermind.Model.MockPlayer2;
-import org.hamcrest.Matchers;
+import mastermind.Model.Mocks.MockPlayer;
+import mastermind.Model.Mocks.MockPlayer2;
 import org.junit.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import java.util.*;
-import java.util.ArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.*;
 

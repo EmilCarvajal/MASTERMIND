@@ -1,7 +1,7 @@
 package mastermind;
 
 import mastermind.Controlador.MasterMindGame;
-import mastermind.Model.MockPlayer2;
+import mastermind.Model.Mocks.MockPlayer2;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,7 +36,7 @@ public class MasterMindGameTest {
 
 
         //System.out.println(m_game.code_answer_correct);
-        Assert.assertTrue("Code_answer is not correct",m_game.code_answer_correct);
+        //Assert.assertTrue("Code_answer is not correct",m_game.code_answer_correct);
         //assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
 
     }

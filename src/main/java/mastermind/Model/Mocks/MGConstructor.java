@@ -1,6 +1,8 @@
-package mastermind.Model;
+package mastermind.Model.Mocks;
 
 import mastermind.Controlador.MasterMindGame;
+import mastermind.Model.Player;
+import mastermind.Model.SecretCode;
 import mastermind.Vista.Board;
 
 import java.util.ArrayList;

@@ -11,6 +11,9 @@ public class Code {
     }
     public String getCodigo() {return m_codigo;}
     public void setCode(String code){ this.m_codigo=  code.toUpperCase(); }
+    public boolean checkCode(String code) {
+        return this.m_codigo.equals(code);
+    }
 
     private String m_codigo;
 

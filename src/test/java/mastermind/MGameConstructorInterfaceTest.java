@@ -1,10 +1,8 @@
 package mastermind;
 
 import mastermind.Controlador.MasterMindGame;
-import mastermind.Model.MockMGameConstructorInterface;
-import mastermind.Model.MockPlayer;
-import mastermind.Model.Player;
-import mastermind.Vista.Board;
+import mastermind.Model.Mocks.MockMGameConstructorInterface;
+import mastermind.Model.Mocks.MockPlayer;
 import org.junit.Test;
 
 import java.util.Locale;

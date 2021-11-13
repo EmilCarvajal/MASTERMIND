@@ -4,6 +4,7 @@ package mastermind;
 import mastermind.Controlador.MasterMindGame;
 import mastermind.Model.Code;
 import mastermind.Model.MockPlayer;
+import mastermind.Model.MockPlayer2;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -30,7 +31,7 @@ public class TestMasterMind {
         assertTrue("Code_answer is not correct",m_game.code_answer_correct);
         assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
     }
-
+/* No esta bien este
     @Test
     public void Test_pairwase() {
         // Test de diversas parejas de colores NO repetidas
@@ -101,6 +102,24 @@ public class TestMasterMind {
         }
     }
 
+*/
+    @Test //no esta bien
+    public void Test_Lista_Codigos(){
+
+        // Set up mock
+        MockPlayer2 mockPlayer2 = new MockPlayer2();
+
+        // Declaració y setup clase que crida al Mock
+        MasterMindGame m_game = new MasterMindGame();
+        m_game.setPlayer(mockPlayer2);
+        System.out.println(m_game.playerInterface.IntroduceCode());
+        //Prova i validació
+        m_game.mainGame_Mock();
+        //System.out.println(m_game.code_answer_correct);
+        //assertTrue("Code_answer is not correct",m_game.code_answer_correct);
+        //assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
+
+    }
     @ParameterizedTest
     @CsvFileSource(resources = "/Pairwise.csv",numLinesToSkip = 1,delimiterString = ";")
     public void Test_PairwiseCSV(final String v1,final String v2,final String v3,final String v4) {

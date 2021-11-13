@@ -22,12 +22,13 @@ public class Board{
     public void añadirPistasTablero(Hint pista) {
         this.m_listEnciertos.add(pista);
     }
+    /*
     public String getTablero() {
         return tauler;
     }
     public ArrayList<Code> getCodigosTablero() {
         return this.m_listCodigos;
-    }
+    }*/
     public ArrayList<Hint> getPistasTablero() {
         return this.m_listEnciertos;
     }

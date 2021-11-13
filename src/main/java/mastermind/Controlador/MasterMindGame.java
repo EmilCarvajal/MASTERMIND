@@ -140,12 +140,15 @@ public class MasterMindGame {
         this.intentos=0;
 
         while(!isOver){
-            this.isOver=true;
+            //this.isOver=true;
             if(this.intentos < MAX_OPPORTUNITIES){
                 String code_answer = this.playerInterface.IntroduceCode();
                 this.listaIntentos.add(code_answer);
+
+                System.out.println("l intentos: "+this.listaIntentos.get(0));
                 //Si el codigo introducido no es valido se devuelve null.
                 while ( code_answer == null){
+                    System.out.println("is null");
                     //Volvemos a pedir que introduzca el código si el código introducido por el usuario no preseta el formato valido.
                     code_answer = this.playerInterface.IntroduceCode();
                 }

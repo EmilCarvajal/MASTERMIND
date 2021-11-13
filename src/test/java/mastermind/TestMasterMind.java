@@ -7,6 +7,7 @@ import mastermind.Model.MockPlayer;
 import mastermind.Model.MockPlayer2;
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -15,8 +16,8 @@ import java.util.ArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.*;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestMasterMind {
-
     @Test
     public void Test_Update_Code() {
         // Set up mock
@@ -105,7 +106,6 @@ public class TestMasterMind {
 */
     @Test //no esta bien
     public void Test_Lista_Codigos(){
-
         // Set up mock
         MockPlayer2 mockPlayer2 = new MockPlayer2();
 
@@ -115,11 +115,13 @@ public class TestMasterMind {
         System.out.println(m_game.playerInterface.IntroduceCode());
         //Prova i validació
         m_game.mainGame_Mock();
+        System.out.println("hii");
         //System.out.println(m_game.code_answer_correct);
-        //assertTrue("Code_answer is not correct",m_game.code_answer_correct);
+        assertTrue("Code_answer is not correct",m_game.code_answer_correct);
         //assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
 
     }
+
     @ParameterizedTest
     @CsvFileSource(resources = "/Pairwise.csv",numLinesToSkip = 1,delimiterString = ";")
     public void Test_PairwiseCSV(final String v1,final String v2,final String v3,final String v4) {

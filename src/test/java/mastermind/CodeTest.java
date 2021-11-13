@@ -1,6 +1,8 @@
 package mastermind;
 
 import mastermind.Model.Code;
+import mastermind.Model.SecretCode;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.hamcrest.Matchers;
 
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Locale;
 import org.junit.Assert;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class CodeTest {
@@ -18,7 +21,7 @@ public class CodeTest {
     @Test
     void contructor_test_lenth(){
         t_codigo = new Code("holaa");
-        assertThat("tamaño no valido",t_codigo.getCodigo(), Matchers.hasLength(4)); //comprovar tamaño lista
+        assertNotEquals("tamaño no valido",t_codigo.getCodigo(), Matchers.hasLength(4)); //comprovar tamaño lista
 
     }
 
@@ -46,6 +49,34 @@ public class CodeTest {
             System.out.println (ch);
             assertThat("error valid char",COLORS, Matchers.hasItem(ch));
         }
+    }
+
+    @Test
+    public void TestCheckCode1(){
+
+        SecretCode secretCodeObj;
+        secretCodeObj = new SecretCode();
+
+        //Verifica si introduciendo codigos igualespara comparar retorna true
+
+        Code compare = new Code();
+        compare.setCode(secretCodeObj.getSecretCode());
+
+        assertTrue(compare.checkCode(secretCodeObj.getSecretCode()));
+    }
+
+    @Test
+    public void TestCheckCode2(){
+
+        SecretCode secretCodeObj;
+        secretCodeObj = new SecretCode();
+
+        //Verifica si introduciendo codigos diferentes para comparar retorna false
+
+        Code compareCode = new Code();
+        compareCode.setCode("FFFF"); //La variable secretCode de compareCode != a la variable secretCodede de secretCodeObj
+
+        assertFalse(compareCode.checkCode(secretCodeObj.getSecretCode()));
     }
 
     @Test

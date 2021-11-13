@@ -21,9 +21,19 @@ public class Player {
     }
     public void setName(String str){this.name = str;}
     public void askPlayerName(){
-        System.out.println("Please, enter you name (Max 10 characters): ");
-        Scanner scanner = new Scanner(System.in);//cin. Para introducir por teclado
-        this.name = scanner.nextLine();
+
+        System.out.println("Please, enter you name (Max 10 characters) without spaces: ");
+        Scanner scanner = new Scanner(System.in);//cin, para introducir por teclado
+        String str = scanner.nextLine();
+
+        if(str.contains(" ") || str.length() > 10  || str == null ){
+            //Nombre intoduciro sin formato, por tanto definimos su nombre como JugadorJugando.
+            this.name = "JugadorJugando";
+
+        }
+        else {
+            this.name = str;
+        }
         System.out.println("Your name is: " + name);
     }
 

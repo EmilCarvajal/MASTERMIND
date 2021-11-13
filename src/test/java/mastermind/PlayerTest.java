@@ -12,20 +12,46 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class PlayerTest {
+
     public static final int NUMERO_PROVES = 50;
+
     @Test
     public void askPlayerName1(){
-    //Código simula user escribiendo en teclado
-    InputStream sysInBackup = System.in; // backup System.in to restore it later
-    ByteArrayInputStream in = new ByteArrayInputStream("Mario".getBytes());
-    System.setIn(in);
-    //
-    Player p1 = new Player();
-    Assert.assertTrue(p1.getName() instanceof String);
+        //Código para simular un usuario entrando un nombre correcto por teclado.
+
+        InputStream sysInBackup = System.in;
+        ByteArrayInputStream in = new ByteArrayInputStream("Mario".getBytes());
+        System.setIn(in);
+
+        Player p1 = new Player();
+        p1.askPlayerName();
+
+        Assert.assertTrue(p1.getName() instanceof String);
+        Assert.assertEquals("Mario", p1.getName());
+
     }
-    //To test only escriureFitxer()
-    //@ParameterizedTest
-    //@ValueSource(strings = {"CorrectCodes.txt","IncorrectCodes.txt"}
+
+    @Test
+    public void askPlayerName2(){
+        /* Código para simular un usuario entrando un nombre erroneo por teclado.
+        Al introducir un nombre erroneo el juego le asigna un nombre a la fuerza. Este nombre será JuagorJugando */
+
+        InputStream sysInBackup = System.in;
+        ByteArrayInputStream in = new ByteArrayInputStream("    ".getBytes());
+        System.setIn(in);
+
+        Player p1 = new Player();
+        p1.askPlayerName();
+
+        Assert.assertTrue(p1.getName() instanceof String);
+        Assert.assertEquals("JugadorJugando", p1.getName());
+
+    }
+
+    /* To test only escriureFitxer()
+    @ParameterizedTest
+    @ValueSource(strings = {"CorrectCodes.txt","IncorrectCodes.txt"} */
+
     public String escriureFitxer(String nomFitxer) {
         FileWriter file = null;
         PrintWriter pw = null;

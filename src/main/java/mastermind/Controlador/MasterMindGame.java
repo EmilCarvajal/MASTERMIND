@@ -68,8 +68,6 @@ public class MasterMindGame {
     }
 */
     public void mainGame(){
-
-        this.intentos = 0;
         while(!isOver){
             if(this.intentos < MAX_OPPORTUNITIES){
                 String code_answer = this.player.IntroduceCode();
@@ -173,4 +171,48 @@ public class MasterMindGame {
     }
 
 
+    //LOOP TESTING
+    public int TestSimpleLoop1(int input){
+        int contador = 0;
+        for(; input < 10; input++){
+            contador ++;
+        }
+        return  contador;
+
+    }
+    public int TestSimpleLoop2(int input){
+        int contador = 0;
+        while(input < 100 && input > 0){
+            input ++;
+            contador ++;
+        }
+        return contador;
+    }
+
+    public int TestAniuatLoop1(int input1, int input2){
+
+        int contador = 0;
+        int aux_input2 = input2;
+        for(; input1 < 10; input1++){
+
+            for (;input2 < 10; input2++){
+                contador ++;
+            }
+            input2 = aux_input2;
+        }
+        return  contador;
+    }
+    public int TestAniuatLoop2(int input1, int input2){
+        int contador = 0;
+        int aux_input2 = input2;
+        while(input1 < 10){
+            while(input2< 10){
+                input1 ++;
+                input2 ++;
+                contador ++;
+            }
+            input2 = aux_input2;
+        }
+        return contador;
+    }
 }

@@ -72,6 +72,156 @@ public class MasterMindGameTest {
         //Prova i validació
         m_game.mainGame_Mock();
 
+    }
+
+    @Test
+    public void TestSimpleLoop1(){
+        MasterMindGame PruebaLoopMMG= new MasterMindGame();
+        //Evitar el loop
+        int contador_Test_Deseado = 0;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop1(10) );
+        //Una passada pel loop
+        contador_Test_Deseado = 1;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop1(9) );
+        //Dues passades pel loop
+        contador_Test_Deseado = 2;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop1(8) );
+        //m passades pel loop m<n
+        contador_Test_Deseado = 6;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop1(4) );
+        //(n-1), n passades pel loop (n és el nombremàxim de passades) on n és el nombre màxim possible de passades
+        contador_Test_Deseado = 9;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop1(1) );
+
+
+    }
+    @Test
+    public void TestSimpleLoop2(){
+        MasterMindGame PruebaLoopMMG= new MasterMindGame();
+        //Evitar el loop
+        int contador_Test_Deseado = 0;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop2(-5000) );
+        //Una passada pel loop
+        contador_Test_Deseado = 1;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop2(99) );
+        //Dues passades pel loop
+        contador_Test_Deseado = 2;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop2(98) );
+        //m passades pel loop m<n
+        contador_Test_Deseado = 60;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop2(40) );
+        //(n-1), n passades pel loop (n és el nombremàxim de passades) on n és el nombre màxim possible de passades
+        contador_Test_Deseado = 99;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestSimpleLoop2(1) );
+
+    }
+
+    @Test
+    public void TestAniuatLoop1(){
+        /*
+        • Començar amb un test simple pel loop més interior, fixant els demés loops al valor mínim
+        • Testejar un loop més extern (com si fos un loop simple) mantenint el nombre d’iteracions
+        dels loops interiors a valors habituals. */
+
+        MasterMindGame PruebaLoopMMG= new MasterMindGame();
+        //---------------LOOP INTERN-------------------------
+        //Evitar el loop
+        int contador_Test_Deseado = 0;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(9,10));
+
+        //Una passada pel loop
+        contador_Test_Deseado = 1;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(9,9));
+
+        //Dues passades pel loop
+        contador_Test_Deseado = 2;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(9,8));
+
+        //m passades pel loop m<n
+        contador_Test_Deseado = 6;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(9,4));
+
+        //(n-1), n passades pel loop (n és el nombremàxim de passades) on n és el nombre màxim possible de passade
+        contador_Test_Deseado = 9;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(9,1));
+
+        //---------------------LOOP EXTERN--------------------------
+        //Evitar el loop
+        contador_Test_Deseado = 0;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(10,5));
+
+        //Una passada pel loop
+        contador_Test_Deseado = 1 * 5;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(9,5));
+
+        //Dues passades pel loop
+        contador_Test_Deseado = 2 * 5;
+        int aux = PruebaLoopMMG.TestAniuatLoop1(8,5);
+        assertEquals(contador_Test_Deseado, aux );
+
+        //m passades pel loop m<n
+        contador_Test_Deseado = 6 * 5;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(4,5));
+
+        //(n-1), n passades pel loop (n és el nombremàxim de passades) on n és el nombre màxim possible de passade
+        contador_Test_Deseado = 9 * 5;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(1,5));
+
+
+    }
+
+    @Test
+    public void  TestAniuatLoop2(){
+
+                /*
+        • Començar amb un test simple pel loop més interior, fixant els demés loops al valor mínim
+        • Testejar un loop més extern (com si fos un loop simple) mantenint el nombre d’iteracions
+        dels loops interiors a valors habituals. */
+
+        MasterMindGame PruebaLoopMMG= new MasterMindGame();
+        //---------------LOOP INTERN-------------------------
+        //Evitar el loop
+        int contador_Test_Deseado = 0;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(9,10));
+
+        //Una passada pel loop
+        contador_Test_Deseado = 1;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(9,9));
+
+        //Dues passades pel loop
+        contador_Test_Deseado = 2;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(9,8));
+
+        //m passades pel loop m<n
+        contador_Test_Deseado = 6;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(9,4));
+
+        //(n-1), n passades pel loop (n és el nombremàxim de passades) on n és el nombre màxim possible de passade
+        contador_Test_Deseado = 9;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(9,1));
+
+        //---------------------LOOP EXTERN--------------------------
+        //Evitar el loop
+        contador_Test_Deseado = 0;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(10,5));
+
+        //Una passada pel loop
+        contador_Test_Deseado = 1 * 5;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(9,5));
+
+        //Dues passades pel loop
+        contador_Test_Deseado = 2 * 5;
+        int aux = PruebaLoopMMG.TestAniuatLoop1(8,5);
+        assertEquals(contador_Test_Deseado, aux );
+
+        //m passades pel loop m<n
+        contador_Test_Deseado = 6 * 5;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(4,5));
+
+        //(n-1), n passades pel loop (n és el nombremàxim de passades) on n és el nombre màxim possible de passade
+        contador_Test_Deseado = 9 * 5;
+        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(1,5));
+
 
 
     }

@@ -11,110 +11,127 @@ import static org.junit.jupiter.api.Assertions.*;
 public class HintTest {
 
     SecretCode secretCodeObj;
+    Code code;
     @BeforeEach
     void setUp(){
         secretCodeObj = new SecretCode();
-
+        code = new Code();
     }
-
     @Test
-    public void test_OrdenaPista_GenerateHint_1() {
+    public void TestConstructorHint() {
         /*Forzamos para que los codigos(code y secretCode) sean diferentes pero con colores correctos, por tanto
         la funci?on GenerateHint() ha de darse cuenta y retornar 'oooo' */
 
-        Code code = new Code();
         code.setCode("OYGR");
-
         secretCodeObj.setSecretCode("RGYO");
 
-        Hint pista= new Hint(secretCodeObj,code);
+        Hint pista = new Hint(secretCodeObj,code);
         String str_pista = pista.getHint();
 
         assertEquals("oooo", str_pista);
-    }
 
-    @Test
-    public void test_OrdenaPista_GenerateHint_2() {
         /*Hacemos que coincida un caracter y el resto no,
         por tanto el resultado de la pista ha de ser 'xooo' */
 
-        Code code = new Code();
         code.setCode("RYGR");
-
         secretCodeObj.setSecretCode("RGYO");
 
-        Hint pista= new Hint(secretCodeObj,code);
-        String str_pista = pista.getHint();
-
+        pista = new Hint(secretCodeObj,code);
+        str_pista = pista.getHint();
 
         assertEquals("xooo", str_pista);
-    }
 
-    @Test
-    public void test_OrdenaPista_GenerateHint_3() {
         /*Hacemos que coincidan dos caracteres y el resto no,
         por tanto el resultado de la pista ha de ser 'xxoo' */
 
-        Code code = new Code();
         code.setCode("OOOO");
-
         secretCodeObj.setSecretCode("RROO");
 
-        Hint pista= new Hint(secretCodeObj,code);
-        String str_pista = pista.getHint();
-
+        pista= new Hint(secretCodeObj,code);
+        str_pista = pista.getHint();
 
         assertEquals("xxoo", str_pista);
-    }
 
-    @Test
-    public void test_OrdenaPista_GenerateHint_4() {
         /*Hacemos que coincidan tres caracteres, por tanto
          el resultado de la pista ha de ser 'xxxo' */
 
-        Code code = new Code();
         code.setCode("OOOO");
-
         secretCodeObj.setSecretCode("ROOO");
 
-        Hint pista= new Hint(secretCodeObj,code);
-        String str_pista = pista.getHint();
-
+        pista= new Hint(secretCodeObj,code);
+         str_pista = pista.getHint();
 
         assertEquals("xxxo", str_pista);
-    }
 
-    @Test
-    public void test_OrdenaPista_GenerateHint_5() {
         /*Hacemos que coincidan todos los car?cter,
         pos tanto el resultado ha de ser 'xxxx' */
 
-        Code code = new Code();
         code.setCode("OOOO");
-
         secretCodeObj.setSecretCode("OOOO");
 
-        Hint pista= new Hint(secretCodeObj,code);
-        String str_pista = pista.getHint();
-
+        pista= new Hint(secretCodeObj,code);
+        str_pista = pista.getHint();
 
         assertEquals("xxxx", str_pista);
-    }
 
-    @Test
-    public void test_OrdenaPista_GenerateHint_6() {
         /*Test en el que nada coincide en quanto a los colores introducidos.
          El usuario no acierta nada, por tanto se retorna "----" */
 
-        Code code = new Code();
         code.setCode("YOPG");
-
         secretCodeObj.setSecretCode("RRRR");
 
-        Hint pista= new Hint(secretCodeObj,code);
-        String str_pista = pista.getHint();
-
+        pista = new Hint(secretCodeObj,code);
+        str_pista = pista.getHint();
 
         assertEquals("----", str_pista);
     }
+    @Test
+    public void TestSortHint(){
+
+        Hint pista = new Hint();
+        String Unsorted_Hint = "-oxo";
+        String Sorted_Hint = "xoo-";
+        String returned_Hint = pista.ordenarPista(Unsorted_Hint);
+        assertEquals(Sorted_Hint, returned_Hint);
+
+        Unsorted_Hint = "-xoo";
+        Sorted_Hint = "xoo-";
+        returned_Hint = pista.ordenarPista(Unsorted_Hint);
+        assertEquals(Sorted_Hint, returned_Hint);
+
+        Unsorted_Hint = "---o";
+        Sorted_Hint = "o---";
+        returned_Hint = pista.ordenarPista(Unsorted_Hint);
+        assertEquals(Sorted_Hint, returned_Hint);
+
+        Unsorted_Hint = "ooox";
+        Sorted_Hint = "xooo";
+        returned_Hint = pista.ordenarPista(Unsorted_Hint);
+        assertEquals(Sorted_Hint, returned_Hint);
+
+        Unsorted_Hint = "xo--";
+        Sorted_Hint = "xo--";
+        returned_Hint = pista.ordenarPista(Unsorted_Hint);
+        assertEquals(Sorted_Hint, returned_Hint);
+
+        Unsorted_Hint = "----";
+        Sorted_Hint = "----";
+        returned_Hint = pista.ordenarPista(Unsorted_Hint);
+        assertEquals(Sorted_Hint, returned_Hint);
+
+        Unsorted_Hint = "-oxo----";
+        returned_Hint = pista.ordenarPista(Unsorted_Hint);
+        assertNull(returned_Hint);
+
+
+        Unsorted_Hint = "oxo";
+        returned_Hint = pista.ordenarPista(Unsorted_Hint);
+        assertNull(returned_Hint);
+
+    }
+
+
+
+
+
 }

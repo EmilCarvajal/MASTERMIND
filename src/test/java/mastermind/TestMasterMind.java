@@ -113,7 +113,7 @@ public class TestMasterMind {
         m_game.mainGame_Mock();
         System.out.println("hii");
         //System.out.println(m_game.code_answer_correct);
-        assertTrue("Code_answer is not correct",m_game.code_answer_correct);
+        assertTrue("Code_answer is not correct", m_game.code_answer_correct);
         //assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
 
     }

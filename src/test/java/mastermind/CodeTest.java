@@ -19,6 +19,12 @@ public class CodeTest {
     Code t_codigo;
 
     @Test
+    void TestConstructorCode(){
+        t_codigo = new Code("STRING");
+        assertEquals("STRING", t_codigo.getCodigo());
+    }
+
+    /*@Test
     void contructor_test_lenth(){
         t_codigo = new Code("holaa");
         assertThat("tamaño no valido",t_codigo.getCodigo(), Matchers.hasLength(4)); //comprovar tamaño lista
@@ -50,36 +56,22 @@ public class CodeTest {
             assertThat("error valid char",COLORS, Matchers.hasItem(ch));
         }
     }
+    */
 
     @Test
-    public void TestCheckCode1(){
+    public void TestCheckCode(){
 
-        SecretCode secretCodeObj;
-        secretCodeObj = new SecretCode();
+        Code code = new Code("YYYY");
 
-        //Verifica si introduciendo codigos igualespara comparar retorna true
+        //Verifica si introduciendo codigos iguales para comparar retorna true
+        assertTrue(code.checkCode("YYYY"));
 
-        Code compare = new Code();
-        compare.setCode(secretCodeObj.getSecretCode());
+        //Verifica si introduciendo codigos  no iguales para comparar retorna false
+        assertFalse(code.checkCode("FFFF"));
 
-        assertTrue(compare.checkCode(secretCodeObj.getSecretCode()));
     }
 
-    @Test
-    public void TestCheckCode2(){
-
-        SecretCode secretCodeObj;
-        secretCodeObj = new SecretCode();
-
-        //Verifica si introduciendo codigos diferentes para comparar retorna false
-
-        Code compareCode = new Code();
-        compareCode.setCode("FFFF"); //La variable secretCode de compareCode != a la variable secretCodede de secretCodeObj
-
-        assertFalse(compareCode.checkCode(secretCodeObj.getSecretCode()));
-    }
-
-    @Test
+    /*@Test
     void code_corrrectTest(){
         t_codigo = new Code("brg");
 
@@ -96,5 +88,5 @@ public class CodeTest {
         Assert.assertEquals( t_codigo.getCodigo().toUpperCase(),t_codigo.getCodigo().toUpperCase(Locale.ROOT));
         assertThat("tamaño no valido",t_codigo.getCodigo(), Matchers.hasLength(4)); //comprovar tamaño lista
 
-    }
+    }*/
 }

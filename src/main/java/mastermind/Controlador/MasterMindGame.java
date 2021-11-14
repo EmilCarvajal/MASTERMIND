@@ -66,16 +66,16 @@ public class MasterMindGame {
         this.Win = win;
         this.player = player;
     }
-    //--
 
     public void mainGame(){
-        this.intentos=0;
+
+        this.intentos = 0;
         while(!isOver){
             if(this.intentos < MAX_OPPORTUNITIES){
                 String code_answer = this.player.IntroduceCode();
                 this.listaIntentos.add(code_answer);
                 //Si el codigo introducido no es valido se devuelve null.
-                while ( code_answer == null){
+                while (code_answer == null){
                     //Volvemos a pedir que introduzca el código si el código introducido por el usuario no preseta el formato valido.
                     code_answer = this.player.IntroduceCode();
                 }
@@ -83,26 +83,27 @@ public class MasterMindGame {
                 this.intentos++;
             }
             else{
-                this.isOver=true;
+                this.isOver = true;
                 System.out.println("NO MORE OPPORTUNITIES LEFT. END OF THE GAME. ");
             }
         }
     }
 
-
     //FUNCION IMPORTANTE
     public void introduceCode(String code){
+
         Code user_code =  new Code(code);
+
         if(!user_code.checkCode(this.secretCode.getSecretCode())){
             System.out.println("Has fallat!");
             this.board.añadirCodigosTablero(new Code(code));
-            pista= new Hint(this.secretCode, user_code);
+            pista = new Hint(this.secretCode, user_code);
             this.board.añadirPistasTablero(pista);
             this.board.mostrarTablero(secretCode);
         }
         else{
             this.board.añadirCodigosTablero(new Code(code));
-            pista= new Hint(this.secretCode, user_code);
+            pista = new Hint(this.secretCode, user_code);
             this.board.añadirPistasTablero(pista);
             this.board.mostrarTablero(secretCode);
             this.isOver = true;

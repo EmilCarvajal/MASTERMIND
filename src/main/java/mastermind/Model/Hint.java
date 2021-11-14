@@ -8,8 +8,7 @@ import java.util.Arrays;
 public class Hint{
 
     private String m_hint;
-
-    public Hint() {};
+    public Hint(){};
     public Hint(SecretCode secretCode, Code userCode){
 
         String pistaSortida = "";
@@ -32,7 +31,6 @@ public class Hint{
             }
         }
         this.m_hint = ordenarPista(pistaSortida);
-
     }
     //Constructor modificado para usarlo usando Mock de SecretCode.
     public Hint(SecretCode_Interface secretCode, Code userCode){
@@ -62,13 +60,13 @@ public class Hint{
 
     public String getHint() { return this.m_hint; }
 
-    private String ordenarPista(String pistaDesordenada) {
+    public String ordenarPista(String pistaDesordenada) {
 
         char pistaChars[] = pistaDesordenada.toCharArray();
         Arrays.sort(pistaChars);
         String pistaOrdenada = "";
         //Si Hint no tiene la mida adequada retorna NULL
-        if(pistaChars.length != MasterMindGame.CODE_LENGTH) {
+        if( pistaChars.length != MasterMindGame.CODE_LENGTH) {
             return null;
         }
         else {

@@ -22,7 +22,7 @@ public class SecretCodeTest {
     }
 
     @Test
-    public void testGenerateSecret1(){
+    public void TestConstructorSecretCode(){
 
         //Test secretCode length is correct.
 
@@ -32,7 +32,7 @@ public class SecretCodeTest {
     }
 
     @Test
-    public void testGenerateSecretCode2(){
+    public void TestGenerateSecretCode(){
 
         //Test if letters of SecretCode are within the possible letters that represent colors (RBYGPOV)
 
@@ -67,12 +67,9 @@ public class SecretCodeTest {
 
         m_game.setSecretCodeInterface(mockSecretCode);
         m_game.introduceCode_Mock_SecretCode("RGOP");
-        //aaa
 
-        assertEquals("xo--",m_game.getBoard().getPistasTablero().get(0).getHint());
 
+        assertEquals("xo--", m_game.getBoard().getPistasTablero().get(0).getHint());
     }
-
-
 
 }

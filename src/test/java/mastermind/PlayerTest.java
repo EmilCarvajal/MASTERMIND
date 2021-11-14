@@ -2,19 +2,28 @@ package mastermind;
 
 import mastermind.Controlador.MasterMindGame;
 import mastermind.Model.Player;
+import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
 import java.util.Random;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class PlayerTest {
 
     public static final int NUMERO_PROVES = 50;
 
+    /*@Test
+    public void TestConstructorPlayer(){
+        Player p1 = new Player("Eduardo");
+        Assert.assertEquals(p1.getName(), "Eduardo");
+    }
     @Test
     public void askPlayerName1(){
         //Código para simular un usuario entrando un nombre correcto por teclado.
@@ -33,8 +42,6 @@ public class PlayerTest {
 
     @Test
     public void askPlayerName2(){
-        /* Código para simular un usuario entrando un nombre erroneo por teclado.
-        Al introducir un nombre erroneo el juego le asigna un nombre a la fuerza. Este nombre será JuagorJugando */
 
         InputStream sysInBackup = System.in;
         ByteArrayInputStream in = new ByteArrayInputStream("    ".getBytes());
@@ -46,11 +53,71 @@ public class PlayerTest {
         Assert.assertTrue(p1.getName() instanceof String);
         Assert.assertEquals("JugadorJugando", p1.getName());
 
-    }
-
+    }*/
     /* To test only escriureFitxer()
     @ParameterizedTest
     @ValueSource(strings = {"CorrectCodes.txt","IncorrectCodes.txt"} */
+
+    @Test
+    public void TestIntroduceCode(){
+        Player p1 = new Player();
+
+        InputStream sysInBackup = System.in;
+        ByteArrayInputStream in = new ByteArrayInputStream("WWWWWWWWWWWWW".getBytes());
+        System.setIn(in);
+
+        Assert.assertNull(p1.IntroduceCode());
+
+        sysInBackup = System.in;
+        in = new ByteArrayInputStream("RGBY".getBytes());
+        System.setIn(in);
+        Assert.assertEquals("RGBY", p1.IntroduceCode());
+
+    }
+
+    @Test
+    public void code_corrrectTest(){
+        Player p1 = new Player();
+
+        String str = "RYOP";
+        p1.correct_code(str);
+        Assert.assertTrue( p1.correct_code(str));
+
+        str = "RYYYYOOOO";
+        p1.correct_code(str);
+        Assert.assertFalse( p1.correct_code(str));
+
+        str = "!!!!!";
+        p1.correct_code(str);
+        Assert.assertFalse( p1.correct_code(str));
+
+        str = "";
+        p1.correct_code(str);
+        Assert.assertFalse( p1.correct_code(str));
+
+        str = null;
+        p1.correct_code(str);
+        Assert.assertFalse( p1.correct_code(str));
+
+        str = "-";
+        p1.correct_code(str);
+        Assert.assertFalse( p1.correct_code(str));
+
+
+        /*List<Character> COLORS = Arrays.asList('R', 'B', 'Y', 'G', 'P', 'O','V');
+
+        for (int c = str.length () -1; c>= 0; c--){
+            char ch = str.toUpperCase().charAt (c);
+            System.out.println (ch);
+            assertThat("error valid char",COLORS, Matchers.hasItem(ch));
+        }
+
+        assertThat(str, Matchers.isA(String.class));
+        Assert.assertEquals(str.toUpperCase(), str.toUpperCase());
+        assertThat("tamaño no valido",str, Matchers.hasLength(4)); //comprovar tamaño lista*/
+
+    }
+
 
     public String escriureFitxer(String nomFitxer) {
         FileWriter file = null;
@@ -106,7 +173,7 @@ public class PlayerTest {
                 }
             }
         }
-            catch (Exception e) {
+        catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
@@ -119,7 +186,8 @@ public class PlayerTest {
         }
         return filePath;
     }
-    
+
+
     @Test
     public void correct_codeTest(){
         String CorrectCodePath = escriureFitxer("CorrectCodes.txt");
@@ -139,7 +207,7 @@ public class PlayerTest {
 
             String CorrectCode;
             String IncorrectCode;
-            while(((CorrectCode=buffer1.readLine())!=null )&&((IncorrectCode = buffer2.readLine())!= null)){
+            while(((CorrectCode = buffer1.readLine())!= null )&&((IncorrectCode = buffer2.readLine())!= null)){
 
             Player p1= new Player("Mario");
             Boolean test_code1= p1.correct_code(CorrectCode);

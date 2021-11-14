@@ -13,30 +13,23 @@ public class SecretCode {
     public boolean is_secret;
 
     public SecretCode(){
-        this.secretCode=generateSecretCode();
+        this.secretCode = generateSecretCode();
         this.is_secret = true;
+    }
+    public void setSecretCode(String secretCode) { this.secretCode = secretCode; }
+    public String getSecretCode(){
+        return this.secretCode;
+    }
 
-    }
-    public void setSecretCode(String secretCode) {
-        this.secretCode= secretCode;
-    }
     private String generateSecretCode(){
-        String code="";
+        String code = "";
         Random random = new Random();
         List<String> aux = new ArrayList<String>(MasterMindGame.COLORS);
-        for(int i=0; i<MasterMindGame.CODE_LENGTH;i++){
+
+        for(int i = 0; i< MasterMindGame.CODE_LENGTH; i++){
             code += aux.get(random.nextInt(aux.size()));
         }
         return code;
     }
-    public String getSecretCode(){
-        return this.secretCode;
-    }
-    /*public boolean checkCode(String code) {
-        return this.secretCode.equals(code);
-    }*/
-
-
-
 }
 

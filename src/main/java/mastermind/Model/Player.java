@@ -8,14 +8,12 @@ public class Player {
 
     private String name;
 
-
     public Player(){
         //askPlayerName();
     }
     public Player(String name){
-        this.name =name;
+        this.name = name;
     }
-
     public String getName(){
         return name;
     }
@@ -57,7 +55,7 @@ public class Player {
     }
     public Boolean correct_code(String code){
 
-        if( code==null || code.length() != MasterMindGame.CODE_LENGTH ){
+        if( code == null || code.length() != MasterMindGame.CODE_LENGTH ){
             System.out.println("Codigo introducido inexistente o de largaria inadequada");
             return false;
         }

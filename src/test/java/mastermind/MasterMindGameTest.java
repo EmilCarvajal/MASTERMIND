@@ -302,7 +302,5 @@ public class MasterMindGameTest {
         contador_Test_Deseado = 9 * 5;
         assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(1,5));
 
-
-
     }
 }

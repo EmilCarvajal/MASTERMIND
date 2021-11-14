@@ -25,45 +25,6 @@ public class PlayerTest {
 
     public static final int NUMERO_PROVES = 50;
 
-    /*@Test
-    public void TestConstructorPlayer(){
-        Player p1 = new Player("Eduardo");
-        Assert.assertEquals(p1.getName(), "Eduardo");
-    }
-    @Test
-    public void askPlayerName1(){
-        //CÃ³digo para simular un usuario entrando un nombre correcto por teclado.
-
-        InputStream sysInBackup = System.in;
-        ByteArrayInputStream in = new ByteArrayInputStream("Mario".getBytes());
-        System.setIn(in);
-
-        Player p1 = new Player();
-        p1.askPlayerName();
-
-        Assert.assertTrue(p1.getName() instanceof String);
-        Assert.assertEquals("Mario", p1.getName());
-
-    }
-
-    @Test
-    public void askPlayerName2(){
-
-        InputStream sysInBackup = System.in;
-        ByteArrayInputStream in = new ByteArrayInputStream("    ".getBytes());
-        System.setIn(in);
-
-        Player p1 = new Player();
-        p1.askPlayerName();
-
-        Assert.assertTrue(p1.getName() instanceof String);
-        Assert.assertEquals("JugadorJugando", p1.getName());
-
-    }*/
-    /* To test only escriureFitxer()
-    @ParameterizedTest
-    @ValueSource(strings = {"CorrectCodes.txt","IncorrectCodes.txt"} */
-
     @Test
     public void TestIntroduceCode(){
         Player p1 = new Player();
@@ -120,7 +81,7 @@ public class PlayerTest {
 
         assertThat(str, Matchers.isA(String.class));
         Assert.assertEquals(str.toUpperCase(), str.toUpperCase());
-        assertThat("tamaÃ±o no valido",str, Matchers.hasLength(4)); //comprovar tamaÃ±o lista*/
+        assertThat("tamaño no valido",str, Matchers.hasLength(4)); //comprovar tamaño lista*/
 
     }
     @ParameterizedTest
@@ -260,11 +221,11 @@ public class PlayerTest {
             String IncorrectCode;
             while(((CorrectCode = buffer1.readLine())!= null )&&((IncorrectCode = buffer2.readLine())!= null)){
 
-            Player p1= new Player("Mario");
-            Boolean test_code1= p1.correct_code(CorrectCode);
+                Player p1= new Player("Mario");
+                Boolean test_code1= p1.correct_code(CorrectCode);
 
-            Boolean test_code2 = p1.correct_code(IncorrectCode);
-            assertFalse(test_code2);
+                Boolean test_code2 = p1.correct_code(IncorrectCode);
+                assertFalse(test_code2);
 
 
             }
@@ -291,3 +252,4 @@ public class PlayerTest {
     }*/
 
 }
+

@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="C:\Users\jiaye\Documents\UNI\4R CURSO S1\TQS\PRACTICA\mastermind\DatasetValorsLimits.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\test\resources\Pairwise.csv">
           <value>
             <Attribute>

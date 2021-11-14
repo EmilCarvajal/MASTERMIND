@@ -1,10 +1,13 @@
 package mastermind;
 
 import mastermind.Controlador.MasterMindGame;
+import mastermind.Model.Mocks.MockSecretCode;
 import mastermind.Model.Player;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.io.*;
 import java.util.Arrays;
@@ -14,6 +17,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlayerTest {
 
@@ -85,23 +91,23 @@ public class PlayerTest {
 
         str = "RYYYYOOOO";
         p1.correct_code(str);
-        Assert.assertFalse( p1.correct_code(str));
+        assertFalse( p1.correct_code(str));
 
         str = "!!!!!";
         p1.correct_code(str);
-        Assert.assertFalse( p1.correct_code(str));
+        assertFalse( p1.correct_code(str));
 
         str = "";
         p1.correct_code(str);
-        Assert.assertFalse( p1.correct_code(str));
+        assertFalse( p1.correct_code(str));
 
         str = null;
         p1.correct_code(str);
-        Assert.assertFalse( p1.correct_code(str));
+        assertFalse( p1.correct_code(str));
 
         str = "-";
         p1.correct_code(str);
-        Assert.assertFalse( p1.correct_code(str));
+        assertFalse( p1.correct_code(str));
 
 
         /*List<Character> COLORS = Arrays.asList('R', 'B', 'Y', 'G', 'P', 'O','V');
@@ -117,6 +123,51 @@ public class PlayerTest {
         assertThat("tamaño no valido",str, Matchers.hasLength(4)); //comprovar tamaño lista*/
 
     }
+    @ParameterizedTest
+    @CsvFileSource(resources = "/DatasetValorsLimits.csv",numLinesToSkip = 1,delimiterString = ";")
+    public void Test_Particio_Equivalent_CSV
+            (final String v0,final String v2,
+             final String v3,final String v4v,
+             final String v4nv,final String v5,
+             final String v6,final String v20) {
+        Player p1 = new Player();
+        //Valors nulls
+        boolean code_correct = p1.correct_code(v0);
+        assertFalse(code_correct);
+
+        //Limit 2
+        code_correct = p1.correct_code(v2);
+        assertFalse(code_correct);
+
+        //Limit 3
+        code_correct = p1.correct_code(v3);
+        assertFalse(code_correct);
+
+        //Limit 4 validos
+        code_correct = p1.correct_code(v4v);
+        assertTrue(code_correct);
+
+        //Limit 4 no validos
+        code_correct = p1.correct_code(v4nv);
+        assertFalse(code_correct);
+
+        //Limit 5 no validos
+        code_correct = p1.correct_code(v5);
+        assertFalse(code_correct);
+
+        //Limit 6
+        code_correct = p1.correct_code(v6);
+        assertFalse(code_correct);
+
+        //Limit 20
+        code_correct = p1.correct_code(v20);
+        assertFalse(code_correct);
+
+    }
+
+
+
+
 
 
     public String escriureFitxer(String nomFitxer) {
@@ -213,7 +264,7 @@ public class PlayerTest {
             Boolean test_code1= p1.correct_code(CorrectCode);
 
             Boolean test_code2 = p1.correct_code(IncorrectCode);
-            Assert.assertFalse(test_code2);
+            assertFalse(test_code2);
 
 
             }

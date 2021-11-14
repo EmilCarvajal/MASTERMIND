@@ -207,7 +207,7 @@ public class MasterMindGameTest {
         //---------------LOOP INTERN-------------------------
         //Evitar el loop
         int contador_Test_Deseado = 0;
-        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop1(9,10));
+        assertEquals(contador_Test_Deseado, PruebaLoopMMG.TestAniuatLoop1(9,10));
 
         //Una passada pel loop
         contador_Test_Deseado = 1;
@@ -274,11 +274,11 @@ public class MasterMindGameTest {
 
         //m passades pel loop m<n
         contador_Test_Deseado = 6;
-        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(9,4));
+        assertEquals(contador_Test_Deseado, PruebaLoopMMG.TestAniuatLoop2(9,4));
 
         //(n-1), n passades pel loop (n és el nombremàxim de passades) on n és el nombre màxim possible de passade
         contador_Test_Deseado = 9;
-        assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(9,1));
+        assertEquals(contador_Test_Deseado, PruebaLoopMMG.TestAniuatLoop2(9,1));
 
         //---------------------LOOP EXTERN--------------------------
         //Evitar el loop

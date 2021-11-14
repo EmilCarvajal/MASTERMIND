@@ -118,7 +118,6 @@ public class MasterMindGame {
         Code_Mock = playerInterface.IntroduceCode();
         code_answer_correct = playerInterface.correct_code(Code_Mock);
     }
-    // --
 
     public void mainGame_Mock(){
         this.intentos = 0;

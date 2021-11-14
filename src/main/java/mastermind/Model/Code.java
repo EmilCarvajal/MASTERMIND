@@ -14,7 +14,6 @@ public class Code {
     public boolean checkCode(String code) {
         return this.m_codigo.equals(code);
     }
-
     private String m_codigo;
 
 }

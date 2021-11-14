@@ -20,20 +20,14 @@ public class Board{
     public void añadirPistasTablero(Hint pista) {
         this.m_listEnciertos.add(pista);
     }
-    /*
-    public String getTablero() {
-        return tauler;
-    }
-    public ArrayList<Code> getCodigosTablero() {
-        return this.m_listCodigos;
-    }*/
+
     public ArrayList<Hint> getPistasTablero() {
         return this.m_listEnciertos;
     }
     public void setTablero(String tablero) {
         this.tauler = tablero;
     }
-    public ArrayList<Code> getListCodigos(){ return m_listCodigos; }//Se usa para test de Mastermind IntroduceCode
+    public ArrayList<Code> getListCodigos(){ return m_listCodigos; } //Se usa para test de Mastermind IntroduceCode
 
     // ATRIBUTOS
     private SecretCode CodigoSecreto;

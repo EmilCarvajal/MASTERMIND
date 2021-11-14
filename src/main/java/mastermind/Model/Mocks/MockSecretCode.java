@@ -1,9 +1,5 @@
 package mastermind.Model.Mocks;
-import mastermind.Model.Code;
-import mastermind.Model.Hint;
 import mastermind.Model.SecretCode_Interface;
-
-import java.util.List;
 
 public class MockSecretCode implements SecretCode_Interface {
 

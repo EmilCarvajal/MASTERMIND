@@ -1,7 +1,0 @@
-@startuml
-class MasterMindGame{}
-class Player{}
-class Board {}
-class SecretCode{}
-class Hint{}
-@enduml

@@ -6,35 +6,7 @@ import java.util.Scanner;
 
 public class Player {
 
-    private String name;
-
-    public Player(){
-        //askPlayerName();
-    }
-    public Player(String name){
-        this.name = name;
-    }
-    public String getName(){
-        return name;
-    }
-    public void setName(String str){this.name = str;}
-    public void askPlayerName(){
-
-        System.out.println("Please, enter you name (Max 10 characters) without spaces: ");
-        Scanner scanner = new Scanner(System.in);//cin, para introducir por teclado
-        String str = scanner.nextLine();
-
-        if(str.contains(" ") || str.length() > 10  || str == null ){
-            //Nombre intoduciro sin formato, por tanto definimos su nombre como JugadorJugando.
-            this.name = "JugadorJugando";
-
-        }
-        else {
-            this.name = str;
-        }
-        System.out.println("Your name is: " + name);
-    }
-
+    public Player(){}
     public String IntroduceCode(){
         System.out.println("Available colors:");
         for(int i = 0; i < MasterMindGame.COLORS.size(); i++){
@@ -59,24 +31,24 @@ public class Player {
             System.out.println("Codigo introducido inexistente o de largaria inadequada");
             return false;
         }
-        for( int index=0; index < MasterMindGame.CODE_LENGTH; index++){
-            char charcterCode= code.charAt(index);
-            boolean correct_character=false;
-            for(int i=0; i< MasterMindGame.COLORS.size();i++){
-                String aux=MasterMindGame.COLORS.get(i);
+        for( int index = 0; index < MasterMindGame.CODE_LENGTH; index++){
+
+            char charcterCode = code.charAt(index);
+            boolean correct_character = false;
+
+            for(int i = 0; i< MasterMindGame.COLORS.size(); i++){
+                String aux =  MasterMindGame.COLORS.get(i);
                 if(charcterCode == aux.charAt(0)){
                     correct_character = true;
                 }
             }
-            if(correct_character){
-                //Carcater intoducido es correcto.
-            }
-            else{
+            if(!correct_character){
                 //El usuario ha introducido un carcater que no representa ha ningún color.
                 System.out.println("El caracter '"+ charcterCode +"' no coincide con ninguno de los colores disponibles. Su codigo introducido queda anulado.");
                 System.out.println("El codigo ha de ser una convinación de los colores:" + MasterMindGame.COLORS);
                 return false;
             }
+
 
         }
         return true;

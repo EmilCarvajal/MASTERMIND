@@ -2,7 +2,6 @@ package mastermind.Model.Mocks;
 
 import mastermind.Model.PlayerInterface;
 
-import java.util.Hashtable;
 import java.util.Locale;
 
 public class MockPlayer implements PlayerInterface {

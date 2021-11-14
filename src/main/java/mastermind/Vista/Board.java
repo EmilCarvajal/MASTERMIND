@@ -7,8 +7,6 @@ import mastermind.Model.Hint;
 import mastermind.Model.SecretCode;
 
 import java.util.ArrayList;
-
-
 public class Board{
     // METODOS
     public Board() {

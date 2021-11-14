@@ -251,10 +251,11 @@ public class MasterMindGame {
         int aux_input2 = input2;
         while(input1 < 10){
             while(input2< 10){
-                input1 ++;
+
                 input2 ++;
                 contador ++;
             }
+            input1 ++;
             input2 = aux_input2;
         }
         return contador;

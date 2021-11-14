@@ -35,6 +35,7 @@ public class Board{
     public void setTablero(String tablero) {
         this.tauler = tablero;
     }
+    public ArrayList<Code> getListCodigos(){ return m_listCodigos; }//Se usa para test de Mastermind IntroduceCode
 
     // ATRIBUTOS
     private SecretCode CodigoSecreto;

@@ -84,6 +84,25 @@ public class HintTest {
         str_pista = pista.getHint();
 
         assertEquals("----", str_pista);
+
+        /*El usuario acierta dos colores en su posición y los ostros dos colores son incorrectos */
+
+        code.setCode("RRPG");
+        secretCodeObj.setSecretCode("RRRR");
+
+        pista = new Hint(secretCodeObj,code);
+        str_pista = pista.getHint();
+
+        assertEquals("xx--", str_pista);
+
+        /* El usuario acierta tes colores (dos en la posición correcta), y el color restante no lo acierta */
+        code.setCode("RRPG");
+        secretCodeObj.setSecretCode("RRRP");
+
+        pista = new Hint(secretCodeObj,code);
+        str_pista = pista.getHint();
+
+        assertEquals("xxo-", str_pista);
     }
     @Test
     public void TestSortHint(){

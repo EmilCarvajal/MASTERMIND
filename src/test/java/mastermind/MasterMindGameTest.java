@@ -129,7 +129,7 @@ public class MasterMindGameTest {
     }
 
     @Test //simulaci?n de una partida completa con una lista determinada de codigos 1 un SecretCode determinado.
-    public void Test_Lista_Codigoss(){
+    public void Test_Lista_Codigos(){
         List<String> pistas_correctas  = new ArrayList<String>(List.of(
                 "xooo", "xooo", "xoo-", "ooo-", "oo--", "oo--", "----", "oo--", "xxoo", "ooo-"));
         // Set up mock

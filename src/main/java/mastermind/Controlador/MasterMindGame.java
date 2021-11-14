@@ -54,7 +54,7 @@ public class MasterMindGame {
     /*
     public void setIntentos(int intentos) {
         this.intentos = intentos;
-    }*/
+    }
     /*
     public void setPrivVar(SecretCode secretCode, int intentos, boolean win, boolean isOver, Board board, Player player
         , ArrayList listaIntentos) {
@@ -68,8 +68,6 @@ public class MasterMindGame {
     }
 */
     public void mainGame(){
-
-        this.intentos = 0;
         while(!isOver){
             if(this.intentos < MAX_OPPORTUNITIES){
                 String code_answer = this.player.IntroduceCode();
@@ -170,6 +168,50 @@ public class MasterMindGame {
             System.out.println("YOU WON !!");
             this.Win = true;
         }
+    }
+
+    public int mainGame_Paths(boolean isOver, int intentos,String code_user,String code_user_null){
+        int estados = 1;
+        estados++;
+        while(!isOver){
+            estados++;
+            if(intentos < MAX_OPPORTUNITIES){
+                estados++;
+                String code_answer = code_user; estados++;
+                this.listaIntentos.add(code_answer); estados++;
+                //Si el codigo introducido no es valido se devuelve null.
+                while (code_answer == null){
+                    estados++;
+                    //Volvemos a pedir que introduzca el código si el código introducido por el usuario no preseta el formato valido.
+                    code_answer = code_user_null; estados++;
+                }
+                if(code_answer != null)estados++;
+                introduceCode(code_answer); estados++;
+                intentos++; estados++; isOver = true;
+            }
+            else{
+                estados++;
+                isOver = true; estados++;
+                System.out.println("NO MORE OPPORTUNITIES LEFT. END OF THE GAME. "); estados++;
+            }
+        }
+        estados++;
+        return estados;
+    }
+
+    public String introduceCode_Paths(String code){
+
+        String m_final;
+        Code user_code =  new Code(code);
+        if(!user_code.checkCode("YGBR")){
+            System.out.println("Has fallat!");
+            m_final ="Has fallat!";
+        }
+        else{
+            System.out.println("YOU WON !!");
+            m_final ="YOU WON !!";
+        }
+        return m_final;
     }
 
 

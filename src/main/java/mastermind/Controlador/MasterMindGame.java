@@ -136,7 +136,7 @@ public class MasterMindGame {
                     //Volvemos a pedir que introduzca el código si el código introducido por el usuario no preseta el formato valido.
                     code_answer = this.playerInterface.IntroduceCode();
                 }
-                introduceCode(code_answer);
+                introduceCode_Mock_SecretCode(code_answer);
                 this.intentos++;
             }
             else{
@@ -153,19 +153,19 @@ public class MasterMindGame {
     public void introduceCode_Mock_SecretCode(String code){
         Code user_code =  new Code(code);
         if(!user_code.checkCode(SecretCodeInterface.getSecretCode())){
-            System.out.println("Has fallat!");
+            //System.out.println("Has fallat!");
             this.board.añadirCodigosTablero(new Code(code));
             pista= new Hint(SecretCodeInterface, user_code);
             this.board.añadirPistasTablero(pista);
-            this.board.mostrarTablero(secretCode);
+            //this.board.mostrarTablero(secretCode);
         }
         else{
             this.board.añadirCodigosTablero(new Code(code));
             pista= new Hint(SecretCodeInterface, user_code);
             this.board.añadirPistasTablero(pista);
-            this.board.mostrarTablero(secretCode);
+            //this.board.mostrarTablero(secretCode);
             this.isOver = true;
-            System.out.println("YOU WON !!");
+            //System.out.println("YOU WON !!");
             this.Win = true;
         }
     }

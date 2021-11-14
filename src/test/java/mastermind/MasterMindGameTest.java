@@ -1,9 +1,15 @@
 package mastermind;
 
 import mastermind.Controlador.MasterMindGame;
+import mastermind.Model.Hint;
+import mastermind.Model.Mocks.MockPlayer;
 import mastermind.Model.Mocks.MockPlayer2;
+import mastermind.Model.Mocks.MockSecretCode;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -83,4 +89,56 @@ public class MasterMindGameTest {
         mensage= m_game.introduceCode_Paths("YGHR");
         assertEquals("Has fallat!",mensage);
     }
+
+    @Test //simulación de una partida completa con una lista determinada de codigos 1 un SecretCode determinado.
+    public void Test_Lista_Codigoss(){
+        List<String> pistas_correctas  = new ArrayList<String>(List.of(
+                "xooo",
+                "xooo",
+                "xoo-",
+                "ooo-",
+                "oo--",
+                "oo--",
+                "----",
+                "oo--",
+                "xxoo",
+                "ooo-"));
+        // Set up mock
+        MockPlayer2 mockPlayer2 = new MockPlayer2();
+
+        // Declaració y setup clase que crida al Mock
+        MasterMindGame m_game = new MasterMindGame();
+        MockSecretCode mockSecretCode = new MockSecretCode();
+        mockSecretCode.setSecretCode("BOVR");
+        m_game.setPlayer(mockPlayer2);
+        m_game.setSecretCodeInterface(mockSecretCode);
+        //System.out.println(m_game.playerInterface.IntroduceCode());
+        //Prova i validació
+        m_game.mainGame_Mock();
+        int c= 0;
+        for (Hint p: m_game.getBoard().getPistasTablero()) {
+            assertEquals(pistas_correctas.get(c),p.getHint());
+            c++;
+        }
+        //System.out.println(m_game.code_answer_correct);
+        //assertTrue("Code_answer is not correct", m_game.code_answer_correct);
+        //assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
+
+    }
+
+    @Test
+    public void Test_Update_Code() {
+        // Set up mock
+        MockPlayer mockPlayer = new MockPlayer();
+        // Declaració y setup clase que crida al Mock
+        MasterMindGame m_game = new MasterMindGame();
+        m_game.setPlayer(mockPlayer);
+
+        //Prova i validació
+        m_game.update_code();
+        System.out.println(m_game.code_answer_correct);
+        Assert.assertTrue("Code_answer is not correct",m_game.code_answer_correct);
+        assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
+    }
+
 }

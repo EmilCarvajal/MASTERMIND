@@ -1,7 +1,6 @@
 package mastermind.Controlador;
 
 import mastermind.Model.*;
-import mastermind.Model.Mocks.MGConstructor;
 import mastermind.Vista.Board;
 
 import java.util.ArrayList;
@@ -13,32 +12,31 @@ public class MasterMindGame {
     //CONSTANTES
     public static int MAX_OPPORTUNITIES = 10;
     public static int CODE_LENGTH = 4;
-    public static final  List<String> COLORS = new ArrayList<String>(List.of("R", "B", "Y", "G", "P", "O","V"));
+    public static final  List<String> COLORS = new ArrayList<>(List.of("R", "B", "Y", "G", "P", "O","V"));
 
     // ATRIBUTOS
     private int intentos;
-    private SecretCode secretCode;
+    private final SecretCode secretCode;
     private boolean Win;
     private boolean isOver;
-    private Board board;
-    private Player player;
-    private ArrayList<String> listaIntentos;
+    private final Board board;
+    private final Player player;
+    private final ArrayList<String> listaIntentos;
     private Hint pista;
 
-    private MGConstructor Status;
+    //private MGConstructor Status;
 
     // METODOS
     public MasterMindGame(){
-        /*
+
         secretCode = new SecretCode();
         intentos = 0;
         Win = false;
         isOver = false;
         board = new Board();
         player = new Player();
-        listaIntentos = new ArrayList<>();*/
-        Status = new MGConstructor();
-        Status.tranferStatus(this);
+        listaIntentos = new ArrayList<>();
+
     }
     public boolean getisOver(){
         return this.isOver;
@@ -53,9 +51,11 @@ public class MasterMindGame {
     public String getSecretCode(){return this.secretCode.getSecretCode();}
 
     // SETS PARA MOCKS
+    /*
     public void setIntentos(int intentos) {
         this.intentos = intentos;
-    }
+    }*/
+    /*
     public void setPrivVar(SecretCode secretCode, int intentos, boolean win, boolean isOver, Board board, Player player
         , ArrayList listaIntentos) {
         this.secretCode = secretCode;
@@ -66,7 +66,7 @@ public class MasterMindGame {
         this.Win = win;
         this.player = player;
     }
-
+*/
     public void mainGame(){
 
         this.intentos = 0;
@@ -121,29 +121,6 @@ public class MasterMindGame {
         code_answer_correct = playerInterface.correct_code(Code_Mock);
     }
     // --
-
-    // MOCK CONSTRUCTOR & Play with 1 defined code & MOCK PLAYER--
-    public MGameConstructorInterface mgci ;
-    public void setMgci(MGameConstructorInterface mcgii){this.mgci = mcgii;}
-    public void contructor_mock(){
-        /*
-        int intentos = ;
-        SecretCode secretCode = new SecretCode();
-        boolean Win = false;
-        boolean isOver = false;
-        Board board =new Board();
-        Player player = new Player();
-        ArrayList<String> listaIntentos = new ArrayList<>();
-        */
-        int int_ret = mgci.MasterMindGame_Constructor(secretCode, intentos,Win,isOver,
-                board,player,listaIntentos);
-
-        int n_intentos = mgci.MasterMindGame_Constructor(this.secretCode,this.intentos,this.Win,this.isOver,
-                this.board, this.player, this.listaIntentos);
-        setIntentos(n_intentos);
-        System.out.println("intentos "+intentos);
-        //setPrivVar(secretCode,intentos,Win,isOver,board,player,listaIntentos);
-    }
 
     public void mainGame_Mock(){
         this.intentos = 0;

@@ -33,7 +33,7 @@ public class Hint{
         this.m_hint = ordenarPista(pistaSortida);
     }
     //Constructor modificado para usarlo usando Mock de SecretCode.
-    public Hint(SecretCode_Interface secretCode, Code userCode){
+   public Hint(SecretCode_Interface secretCode, Code userCode){
 
         String pistaSortida = "";
 
@@ -55,7 +55,6 @@ public class Hint{
             }
         }
         this.m_hint = ordenarPista(pistaSortida);
-
     }
 
     public String getHint() { return this.m_hint; }
@@ -65,16 +64,16 @@ public class Hint{
         char pistaChars[] = pistaDesordenada.toCharArray();
         Arrays.sort(pistaChars);
         String pistaOrdenada = "";
-        //Si Hint no tiene la mida adequada retorna NULL
+        /*CODIGO NO NECESARIO Si Hint no tiene la mida adequada retorna NULL
         if( pistaChars.length != MasterMindGame.CODE_LENGTH) {
             return null;
+        }*/
+
+        for (int i = 1; i < pistaChars.length + 1; i++) {
+            pistaOrdenada += pistaChars[pistaChars.length - i];
         }
-        else {
-            for (int i = 1; i < pistaChars.length + 1; i++) {
-                pistaOrdenada += pistaChars[pistaChars.length - i];
-            }
-            return pistaOrdenada;
-        }
+        return pistaOrdenada;
+
     }
 
 

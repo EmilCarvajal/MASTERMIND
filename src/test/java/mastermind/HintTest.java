@@ -6,7 +6,8 @@ import mastermind.Model.SecretCode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class HintTest {
 
@@ -138,14 +139,6 @@ public class HintTest {
         returned_Hint = pista.ordenarPista(Unsorted_Hint);
         assertEquals(Sorted_Hint, returned_Hint);
 
-        Unsorted_Hint = "-oxo----";
-        returned_Hint = pista.ordenarPista(Unsorted_Hint);
-        assertNull(returned_Hint);
-
-
-        Unsorted_Hint = "oxo";
-        returned_Hint = pista.ordenarPista(Unsorted_Hint);
-        assertNull(returned_Hint);
 
     }
 

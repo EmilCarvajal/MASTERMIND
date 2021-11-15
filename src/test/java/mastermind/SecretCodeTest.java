@@ -1,18 +1,14 @@
 package mastermind;
+
 import mastermind.Controlador.MasterMindGame;
-import mastermind.Model.Code;
-import mastermind.Model.Hint;
-import mastermind.Model.Mocks.MockPlayer2;
 import mastermind.Model.Mocks.MockSecretCode;
-import mastermind.Model.Player;
 import mastermind.Model.SecretCode;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class SecretCodeTest {
 
@@ -73,8 +69,5 @@ public class SecretCodeTest {
 
         assertEquals("xo--", m_game.getBoard().getPistasTablero().get(0).getHint());
     }
-
-
-
 
 }

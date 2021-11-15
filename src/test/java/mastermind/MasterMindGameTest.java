@@ -2,24 +2,20 @@ package mastermind;
 
 import mastermind.Controlador.MasterMindGame;
 import mastermind.Model.Code;
+import mastermind.Model.Hint;
+import mastermind.Model.Mocks.MockPlayer;
 import mastermind.Model.Mocks.MockPlayer2;
+import mastermind.Model.Mocks.MockSecretCode;
 import mastermind.Vista.Board;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import mastermind.Model.Hint;
-import mastermind.Model.Mocks.MockPlayer;
-import mastermind.Model.Mocks.MockSecretCode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MasterMindGameTest {
@@ -133,7 +129,7 @@ public class MasterMindGameTest {
     }
 
     @Test //simulaci?n de una partida completa con una lista determinada de codigos 1 un SecretCode determinado.
-    public void Test_Lista_Codigoss(){
+    public void Test_Lista_Codigos(){
         List<String> pistas_correctas  = new ArrayList<String>(List.of(
                 "xooo", "xooo", "xoo-", "ooo-", "oo--", "oo--", "----", "oo--", "xxoo", "ooo-"));
         // Set up mock

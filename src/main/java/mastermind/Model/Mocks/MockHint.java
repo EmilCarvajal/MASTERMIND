@@ -1,7 +1,5 @@
 package mastermind.Model.Mocks;
-
 import mastermind.Model.HintInterface;
-
 public class MockHint implements HintInterface {
     String pista = "xooo";
     public String getHint() {

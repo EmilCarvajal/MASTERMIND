@@ -47,26 +47,8 @@ public class MasterMindGame {
     public Board getBoard() {
         return board;
     }
-
     public String getSecretCode(){return this.secretCode.getSecretCode();}
 
-    // SETS PARA MOCKS
-    /*
-    public void setIntentos(int intentos) {
-        this.intentos = intentos;
-    }
-    /*
-    public void setPrivVar(SecretCode secretCode, int intentos, boolean win, boolean isOver, Board board, Player player
-        , ArrayList listaIntentos) {
-        this.secretCode = secretCode;
-        this.intentos = intentos;
-        this.board = board;
-        this.isOver = isOver;
-        this.listaIntentos = listaIntentos;
-        this.Win = win;
-        this.player = player;
-    }
-*/
     public void mainGame(){
         while(!isOver){
             if(this.intentos < MAX_OPPORTUNITIES){
@@ -237,7 +219,6 @@ public class MasterMindGame {
         int contador = 0;
         int aux_input2 = input2;
         for(; input1 < 10; input1++){
-
             for (;input2 < 10; input2++){
                 contador ++;
             }

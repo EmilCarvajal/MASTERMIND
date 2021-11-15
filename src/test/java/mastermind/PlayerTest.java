@@ -1,5 +1,9 @@
 package mastermind;
 
+import mastermind.Controlador.MasterMindGame;
+import mastermind.Model.Hint;
+import mastermind.Model.Mocks.MockPlayer2;
+import mastermind.Model.Mocks.MockSecretCode;
 import mastermind.Model.Player;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,9 +12,12 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlayerTest {
 
@@ -102,6 +109,28 @@ public class PlayerTest {
         //Limit 20
         code_correct = p1.correct_code(v20);
         assertFalse(code_correct);
+
+    }
+    @Test //simulacion de una partida completa con una lista determinada de codigos 1 un SecretCode determinado.
+    public void Test_Lista_Codigos(){
+        List<String> pistas_correctas  = new ArrayList<String>(List.of(
+                "xooo", "xooo", "xoo-", "ooo-", "oo--", "oo--", "----", "oo--", "xxoo", "ooo-"));
+        // Set up mock
+        MockPlayer2 mockPlayer2 = new MockPlayer2();
+        // Declaraci? y setup clase que crida al Mock
+        MasterMindGame m_game = new MasterMindGame();
+        MockSecretCode mockSecretCode = new MockSecretCode();
+        mockSecretCode.setSecretCode("BOVR");
+        m_game.setPlayer(mockPlayer2);
+        m_game.setSecretCodeInterface(mockSecretCode);
+        //System.out.println(m_game.playerInterface.IntroduceCode());
+        //Prova i validaci?
+        m_game.mainGame_Mock();
+        int c= 0;
+        for (Hint p: m_game.getBoard().getPistasTablero()) {
+            assertEquals(pistas_correctas.get(c),p.getHint());
+            c++;
+        }
 
     }
 

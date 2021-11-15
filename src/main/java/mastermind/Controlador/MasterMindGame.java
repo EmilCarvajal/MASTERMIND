@@ -240,4 +240,20 @@ public class MasterMindGame {
         }
         return contador;
     }
+
+    public int DecConCoverage3(int input1, int input2){
+        int contador = 0;
+        if (input1 >4 || input1<2 ) {//no -inf a 2
+            if (input2 <0)
+                contador = -2;
+            else
+                contador = 100;
+        }
+        else
+            if (input2 >0)
+                contador = 10;
+            else
+                contador = 80;
+        return contador;
+    }
 }

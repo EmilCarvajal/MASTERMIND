@@ -114,6 +114,7 @@ public class MasterMindGameTest {
         n_paths = m_game.mainGame_Paths(isOver,intentos,"YGBR",null);
         assertEquals(7,n_paths);
     }
+
     @Test
     public void Test_introduceCode_Paths(){
         //PATHS = 5 - 5 + 2 = 2
@@ -126,31 +127,6 @@ public class MasterMindGameTest {
         //PATH2: 1-2-4-5
         mensage= m_game.introduceCode_Paths("YGHR");
         assertEquals("Has fallat!",mensage);
-    }
-
-    @Test //simulaci?n de una partida completa con una lista determinada de codigos 1 un SecretCode determinado.
-    public void Test_Lista_Codigos(){
-        List<String> pistas_correctas  = new ArrayList<String>(List.of(
-                "xooo", "xooo", "xoo-", "ooo-", "oo--", "oo--", "----", "oo--", "xxoo", "ooo-"));
-        // Set up mock
-        MockPlayer2 mockPlayer2 = new MockPlayer2();
-
-        // Declaraci? y setup clase que crida al Mock
-        MasterMindGame m_game = new MasterMindGame();
-        MockSecretCode mockSecretCode = new MockSecretCode();
-        mockSecretCode.setSecretCode("BOVR");
-        m_game.setPlayer(mockPlayer2);
-        m_game.setSecretCodeInterface(mockSecretCode);
-        //System.out.println(m_game.playerInterface.IntroduceCode());
-        //Prova i validaci?
-        m_game.mainGame_Mock();
-        int c= 0;
-        for (Hint p: m_game.getBoard().getPistasTablero()) {
-            assertEquals(pistas_correctas.get(c),p.getHint());
-            c++;
-        }
-
-
     }
 
     @Test
@@ -166,6 +142,29 @@ public class MasterMindGameTest {
         System.out.println(m_game.code_answer_correct);
         Assert.assertTrue("Code_answer is not correct",m_game.code_answer_correct);
         assertEquals("Expected code is not correct","ygbr",m_game.Code_Mock);
+    }
+
+    @Test //simulacion de una partida completa con una lista determinada de codigos 1 un SecretCode determinado.
+    public void Test_Lista_Codigos(){
+        List<String> pistas_correctas  = new ArrayList<String>(List.of(
+                "xooo", "xooo", "xoo-", "ooo-", "oo--", "oo--", "----", "oo--", "xxoo", "ooo-"));
+        // Set up mock
+        MockPlayer2 mockPlayer2 = new MockPlayer2();
+        // Declaraci? y setup clase que crida al Mock
+        MasterMindGame m_game = new MasterMindGame();
+        MockSecretCode mockSecretCode = new MockSecretCode();
+        mockSecretCode.setSecretCode("BOVR");
+        m_game.setPlayer(mockPlayer2);
+        m_game.setSecretCodeInterface(mockSecretCode);
+        //System.out.println(m_game.playerInterface.IntroduceCode());
+        //Prova i validaci?
+        m_game.mainGame_Mock();
+        int c= 0;
+        for (Hint p: m_game.getBoard().getPistasTablero()) {
+            assertEquals(pistas_correctas.get(c),p.getHint());
+            c++;
+        }
+
     }
 
     @Test
@@ -315,6 +314,28 @@ public class MasterMindGameTest {
         //(n-1), n passades pel loop (n és el nombremàxim de passades) on n és el nombre màxim possible de passade
         contador_Test_Deseado = 9 * 5;
         assertEquals(contador_Test_Deseado,PruebaLoopMMG.TestAniuatLoop2(1,5));
+
+    }
+    @Test
+    public void TestDecConCoverage3(){
+        MasterMindGame m_game= new MasterMindGame();
+        int cont = m_game.DecConCoverage3(0,-1);
+        assertEquals(-2,cont);
+
+        cont = m_game.DecConCoverage3(0,1);
+        assertEquals(100,cont);
+
+        cont = m_game.DecConCoverage3(5,-1);
+        assertEquals(-2,cont);
+
+        cont = m_game.DecConCoverage3(5,1);
+        assertEquals(100,cont);
+
+        cont = m_game.DecConCoverage3(3,1);
+        assertEquals(10,cont);
+
+        cont = m_game.DecConCoverage3(3,-1);
+        assertEquals(80,cont);
 
     }
 }

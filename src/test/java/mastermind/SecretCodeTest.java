@@ -70,4 +70,5 @@ public class SecretCodeTest {
         assertEquals("xo--", m_game.getBoard().getPistasTablero().get(0).getHint());
     }
 
+
 }

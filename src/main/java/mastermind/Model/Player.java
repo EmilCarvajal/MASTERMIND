@@ -13,7 +13,7 @@ public class Player {
             System.out.print(MasterMindGame.COLORS.get(i)+ " ");
         }
         System.out.println();
-        System.out.println("Which do you think is the secret code?.Code must be a combination of 4 colors");
+        System.out.println("Which do you think is the secret code?. Code must be a combination of 4 colors that can be repeated");
         Scanner scanner = new Scanner(System.in);
         String player_code= scanner.nextLine().toUpperCase();
 

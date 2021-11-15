@@ -12,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import mastermind.Model.Hint;
 import mastermind.Model.Mocks.MockPlayer;
 import mastermind.Model.Mocks.MockSecretCode;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +72,22 @@ public class MasterMindGameTest {
 
     }
 
+    @ParameterizedTest
+    @CsvFileSource(resources = "/Pairwise.csv",numLinesToSkip = 1,delimiterString = ";")
+    public void Test_PairwiseCSV(final String v1,final String v2,final String v3,final String v4,final String pista) {
+        // COMPROVEM TOTES LES PARELLES DISCRETES DE POSIBLES ENTRADES
+        String codigo = v1+v2+v3+v4;
+        MockSecretCode mockSecretCode = new MockSecretCode();
+        mockSecretCode.setSecretCode("BOVR");
+        MasterMindGame m_game = new MasterMindGame();
+
+        m_game.setSecretCodeInterface(mockSecretCode);
+        m_game.introduceCode_Mock_SecretCode(codigo);
+        //System.out.println(m_game.getBoard().getPistasTablero().get(0).getHint());
+
+        assertEquals(pista, m_game.getBoard().getPistasTablero().get(0).getHint());
+
+    }
 
     @Test
     public void Test_mainGame_Paths(){

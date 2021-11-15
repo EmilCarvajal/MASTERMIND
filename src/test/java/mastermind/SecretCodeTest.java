@@ -74,22 +74,7 @@ public class SecretCodeTest {
         assertEquals("xo--", m_game.getBoard().getPistasTablero().get(0).getHint());
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = "/Pairwise.csv",numLinesToSkip = 1,delimiterString = ";")
-    public void Test_PairwiseCSV(final String v1,final String v2,final String v3,final String v4,final String pista) {
-        // COMPROVEM TOTES LES PARELLES DISCRETES DE POSIBLES ENTRADES
-        String codigo = v1+v2+v3+v4;
-        MockSecretCode mockSecretCode = new MockSecretCode();
-        mockSecretCode.setSecretCode("BOVR");
-        MasterMindGame m_game = new MasterMindGame();
 
-        m_game.setSecretCodeInterface(mockSecretCode);
-        m_game.introduceCode_Mock_SecretCode(codigo);
-        //System.out.println(m_game.getBoard().getPistasTablero().get(0).getHint());
-
-        assertEquals(pista, m_game.getBoard().getPistasTablero().get(0).getHint());
-
-    }
 
 
 }

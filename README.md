@@ -66,4 +66,4 @@ Se puede encontrar el informe completo de tests en la carpeta Informe.
 
 # Autores
 Emil Carvajal - 1529821   
-Lluis Galante - 1535722
+Lluis Galante - 1525722

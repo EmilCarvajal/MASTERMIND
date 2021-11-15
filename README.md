@@ -42,7 +42,7 @@ CLASES:
 - MastermindGame: Clase que controla el juego
 
 # Jugar
-Para ejecutar el jueco es tan sencillo como ejecutar la raiz del proyecto: "MAIN".
+Para ejecutar el juego es tan sencillo como ejecutar la raiz del proyecto: "MAIN".
 
 # Tests
 Se han realizado tests de de caja blanca y de caja negra. 

@@ -26,6 +26,7 @@ public class Player {
 
     }
     public Boolean correct_code(String code){
+        // comprueva que el codigo del usuario se adapte a als normas del juego
         if( code == null || code.length() != MasterMindGame.CODE_LENGTH ){
             System.out.println("Codigo introducido inexistente o de largaria inadequada");
             return false;

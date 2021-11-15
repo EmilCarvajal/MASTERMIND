@@ -15,7 +15,6 @@ public class MockSecretCode implements SecretCode_Interface {
     public String getSecretCode(){
         return this.secretCode;
     }
-    //public Hint createHint(Code code){return new Hint()};
-    //public String ordenarPista(String pistaDesordenada);
+
 
 }

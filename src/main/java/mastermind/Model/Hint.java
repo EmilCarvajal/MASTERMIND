@@ -60,14 +60,10 @@ public class Hint{
     public String getHint() { return this.m_hint; }
 
     public String ordenarPista(String pistaDesordenada) {
-
+        // ordena pista en formato "xo-"
         char pistaChars[] = pistaDesordenada.toCharArray();
         Arrays.sort(pistaChars);
         String pistaOrdenada = "";
-        /*CODIGO NO NECESARIO Si Hint no tiene la mida adequada retorna NULL
-        if( pistaChars.length != MasterMindGame.CODE_LENGTH) {
-            return null;
-        }*/
 
         for (int i = 1; i < pistaChars.length + 1; i++) {
             pistaOrdenada += pistaChars[pistaChars.length - i];

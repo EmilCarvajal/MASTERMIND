@@ -7,7 +7,15 @@ import mastermind.Model.Hint;
 import mastermind.Model.SecretCode;
 
 import java.util.ArrayList;
+
+// clase de vista que muestra el tablero por el terminal
 public class Board{
+    // ATRIBUTOS
+    private SecretCode CodigoSecreto;
+    private String tauler;
+    private ArrayList<Code> m_listCodigos;
+    private ArrayList<Hint> m_listEnciertos;
+
     // METODOS
     public Board() {
         m_listCodigos = new ArrayList<Code>();
@@ -28,12 +36,6 @@ public class Board{
         this.tauler = tablero;
     }
     public ArrayList<Code> getListCodigos(){ return m_listCodigos; } //Se usa para test de Mastermind IntroduceCode
-
-    // ATRIBUTOS
-    private SecretCode CodigoSecreto;
-    private String tauler;
-    private ArrayList<Code> m_listCodigos;
-    private ArrayList<Hint> m_listEnciertos;
 
 
     public void mostrarTablero(SecretCode CodigoSecreto) {

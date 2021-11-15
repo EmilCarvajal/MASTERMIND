@@ -22,6 +22,7 @@ public class SecretCode {
     }
 
     private String generateSecretCode(){
+        // general codigo secreto aleatorio
         String code = "";
         Random random = new Random();
         List<String> aux = new ArrayList<String>(MasterMindGame.COLORS);

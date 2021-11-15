@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class MockPlayer2 implements PlayerInterface {
+    //contiene una lista de códigos
+    //cuando se le llama a IntroduceCode devuelve el siguiente code de la lista
+
     public String code = "ygbr".toUpperCase(Locale.ROOT);
     public static final List<String> codigosPlayer  = new ArrayList<String>(List.of("RRRR", "RBRR", "RBGR", "RBGO", "RBGP", "RBGG","FFFF","GYRO","BRVO","RBGO","GOPR"));//----
     public int cont_c = 0;

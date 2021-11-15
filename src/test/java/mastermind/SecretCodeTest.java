@@ -58,14 +58,14 @@ public class SecretCodeTest {
 
     @Test
     public void testSecretCodeMain(){
-
+        //comprueva la inicializacion de SecretCodes sin necesidad de una clase SecretCode,
+        // se utiliza una SecretCodeOnterface
         MockSecretCode mockSecretCode = new MockSecretCode();
         mockSecretCode.setSecretCode("YGBR");
         MasterMindGame m_game = new MasterMindGame();
 
         m_game.setSecretCodeInterface(mockSecretCode);
         m_game.introduceCode_Mock_SecretCode("RGOP");
-
 
         assertEquals("xo--", m_game.getBoard().getPistasTablero().get(0).getHint());
     }

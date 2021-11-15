@@ -1,19 +1,20 @@
 # [TQS] MASTERMIND
 
-<img src=""/>
 
 
 Programación del juego "Mastermind" por medio de TDD con arquitectura MVC.
 
+<img src="https://github.com/EmilCarvajal/MASTERMIND/blob/master/img/master.jpg"/>
+
 
 
 # Tabla de Contenidos
-* [Que es Mastermind?](#Que-es-Mastermind?)
+* [Que es Mastermind?](#que-es-Mastermind?)
 * [Descripción de proyecto](#descripción-del-proyecto)
-* [Implementación](#Implementación)
-* [Jugar](#Jugar)
+* [Implementación](#implementación)
+* [Jugar](#jugar)
 
-* [Tests](#Tests)
+* [Tests](#tests)
 
 * [Autores](#autores)
 
@@ -58,11 +59,11 @@ Técnicas utilizadas:
 - Path Coverage	
 - Loop testing
 
-EJEMPLO DE STATEMENT COVERAGE
+EJEMPLO DE RESULTADOS: STATEMENT COVERAGE 
 
-<img src=""/>
+<img src="https://github.com/EmilCarvajal/MASTERMIND/blob/master/img/state.JPG"/>
 Se puede encontrar el informe completo de tests en la carpeta Informe.
 
 # Autores
 Emil Carvajal - 1529821   
-Lluis Galante -
+Lluis Galante - 1535722

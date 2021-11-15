@@ -26,16 +26,13 @@ public class Player {
 
     }
     public Boolean correct_code(String code){
-
         if( code == null || code.length() != MasterMindGame.CODE_LENGTH ){
             System.out.println("Codigo introducido inexistente o de largaria inadequada");
             return false;
         }
         for( int index = 0; index < MasterMindGame.CODE_LENGTH; index++){
-
             char charcterCode = code.charAt(index);
             boolean correct_character = false;
-
             for(int i = 0; i< MasterMindGame.COLORS.size(); i++){
                 String aux =  MasterMindGame.COLORS.get(i);
                 if(charcterCode == aux.charAt(0)){
@@ -44,14 +41,15 @@ public class Player {
             }
             if(!correct_character){
                 //El usuario ha introducido un carcater que no representa ha ningún color.
-                System.out.println("El caracter '"+ charcterCode +"' no coincide con ninguno de los colores disponibles. Su codigo introducido queda anulado.");
+                System.out.println("El caracter '"+ charcterCode +"' no coincide con ninguno de " +
+                        "los colores disponibles. Su codigo introducido queda anulado.");
                 System.out.println("El codigo ha de ser una convinación de los colores:" + MasterMindGame.COLORS);
                 return false;
             }
-
-
         }
         return true;
     }
+
+
 
 }

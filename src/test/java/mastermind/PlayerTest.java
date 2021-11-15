@@ -62,6 +62,7 @@ public class PlayerTest {
         assertFalse( p1.correct_code(str));
 
     }
+
     @ParameterizedTest
     @CsvFileSource(resources = "/DatasetValorsLimits.csv",numLinesToSkip = 1,delimiterString = ";")
     public void Test_Particio_Equivalent_CSV
@@ -71,7 +72,7 @@ public class PlayerTest {
              final String v6,final String v20) {
         Player p1 = new Player();
         //Valors nulls
-        boolean code_correct = p1.correct_code(v0);
+        boolean code_correct = p1.correct_code(null);
         assertFalse(code_correct);
 
         //Limit 2

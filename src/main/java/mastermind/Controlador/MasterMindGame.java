@@ -18,13 +18,11 @@ public class MasterMindGame {
     private int intentos;
     private final SecretCode secretCode;
     private boolean Win;
-    private boolean isOver;
+    private boolean isOver; //juego a terminado
     private final Board board;
     private final Player player;
-    private final ArrayList<String> listaIntentos;
+    private final ArrayList<String> listaIntentos; //guarda codigos del jugador
     private Hint pista;
-
-    //private MGConstructor Status;
 
     // METODOS
     public MasterMindGame(){
@@ -38,17 +36,8 @@ public class MasterMindGame {
         listaIntentos = new ArrayList<>();
 
     }
-    public boolean getisOver(){
-        return this.isOver;
-    }
-    public boolean getWin(){return this.Win;}
-    public ArrayList<String> getListaIntentos(){return this.listaIntentos;}
-    public int getIntentos(){return this.intentos;}
-    public Board getBoard() {
-        return board;
-    }
-    public String getSecretCode(){return this.secretCode.getSecretCode();}
 
+    // MAIN DEL JUEGO
     public void mainGame(){
         while(!isOver){
             if(this.intentos < MAX_OPPORTUNITIES){
@@ -69,9 +58,9 @@ public class MasterMindGame {
         }
     }
 
-    //FUNCION IMPORTANTE
+    //ACTUALIZAR DATOS DEL JUEGO
     public void introduceCode(String code){
-
+        // Actualiza variables en fucion si ha encertado el código o no
         Code user_code =  new Code(code);
 
         if(!user_code.checkCode(this.secretCode.getSecretCode())){
@@ -91,19 +80,39 @@ public class MasterMindGame {
             this.Win = true;
         }
     }
+    // ------- FINAL CODIGO EJECUTABLE REAL DEL JUEGO ----------
+
+    // ------- INICIO CÓDIGO PARA TESTS ------------------------
+
+    public boolean getisOver(){
+        return this.isOver;
+    }
+    public boolean getWin(){return this.Win;}
+    public ArrayList<String> getListaIntentos(){return this.listaIntentos;}
+    public int getIntentos(){return this.intentos;}
+    public Board getBoard() {
+        return board;
+    }
+    public String getSecretCode(){return this.secretCode.getSecretCode();}
+
     // MOCK PLAYER --
     public PlayerInterface playerInterface;
     public void setPlayer(PlayerInterface jugador){this.playerInterface = jugador;}
     public String Code_Mock;
     public boolean code_answer_correct;
+
     public void update_code(){
+        // inicializa code del jugador con el code de un mock
         Code_Mock = playerInterface.IntroduceCode();
         code_answer_correct = playerInterface.correct_code(Code_Mock);
     }
 
     public void mainGame_Mock(){
+        /*Es el main del juego normal pero adaptada para poder utilizar las clases
+        layerInterface y SecretCode_Interface. De esta manera podemos simular el
+        juego completo sin conocer el código secreto aleatório ni las entradas del
+        usuario*/
         this.intentos = 0;
-
         while(!isOver){
             //this.isOver=true;
             if(this.intentos < MAX_OPPORTUNITIES){
@@ -132,6 +141,7 @@ public class MasterMindGame {
     public void setSecretCodeInterface(SecretCode_Interface MockSCode){ this.SecretCodeInterface = MockSCode ;}
 
     public void introduceCode_Mock_SecretCode(String code){
+        //  Se ha adaptado a la versión original para que funcione con Mocks.
         Code user_code =  new Code(code);
         if(!user_code.checkCode(SecretCodeInterface.getSecretCode())){
             System.out.println("Has fallat!");
@@ -152,6 +162,8 @@ public class MasterMindGame {
     }
 
     public int mainGame_Paths(boolean isOver, int intentos,String code_user,String code_user_null){
+        /*Utilizamos esta función modificada de mainGame() para poder testar mediante un
+        test el path coverage del método mainGame() */
         int estados = 1;
         estados++;
         while(!isOver){
@@ -181,7 +193,8 @@ public class MasterMindGame {
     }
 
     public String introduceCode_Paths(String code){
-
+        /*Utilizamos esta función simplificada de introduce_code() para
+         poder realizar un Path Coverage que cubra los posibles casos*/
         String m_final;
         Code user_code =  new Code(code);
         if(!user_code.checkCode("YGBR")){
@@ -196,7 +209,7 @@ public class MasterMindGame {
     }
 
 
-    //LOOP TESTING
+    //LOOP TESTING:  Funciones para hacer loop testing
     public int TestSimpleLoop1(int input){
         int contador = 0;
         for(; input < 10; input++){
@@ -241,6 +254,7 @@ public class MasterMindGame {
         return contador;
     }
 
+    // Funcion para hacer un tercer caso de test de decision y conditional coverage
     public int DecConCoverage3(int input1, int input2){
         int contador = 0;
         if (input1 >4 || input1<2 ) {//no -inf a 2
